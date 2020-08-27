@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection.js');
+const Rating = require('./Rating.js');
 
 // create our User model
 class User extends Model {
@@ -8,7 +9,35 @@ class User extends Model {
     checkPassword(loginPw) {
       return bcrypt.compareSync(loginPw, this.password);
     }
-  }
+
+    static rate(body, models){
+      return models.Rating.create({
+        user_id: body.user_id,
+        product_id: body.product_id,
+        rating_value: body.rating_value
+      }),then(() => {
+        return Product.findOne({
+          where: {
+            id: body.product_id
+          },
+          attributes: [
+            'id',
+            'product_name',
+            'description',
+            'price',
+            'condition',
+            'location',
+            'category_id',
+            'user_id',
+            [
+              sequelize.literal('(SELECT (AVG(rating_value) FROM rating WHERE user.id = rating.rated_id)'),
+              'rating_avg'
+            ]
+          ]
+        });
+      });
+    }
+}
 
   // create fields/columns for User model
 User.init(
