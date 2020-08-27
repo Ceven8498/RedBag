@@ -18,7 +18,7 @@ Rating.init(
               key: 'id'
             }
           },
-          product_id: {
+          rated_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {

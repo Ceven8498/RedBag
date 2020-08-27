@@ -83,6 +83,21 @@ router.put('/:id', (req, res) => {
     });
 });
 
+router.put('/rating', (req, res) => {
+  if(req.session){
+    console.log("About to rate a user!\n");
+    User.rate(
+      { ...req.body, user_id: req.session.user_id },
+      {Rating, User}
+    )
+    .then(updatedRatingData => res.json(updatedRatingData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err); 
+    });
+  }
+});
+
 router.delete('/:id', (req, res) => {
   User.destroy({
     where: {
