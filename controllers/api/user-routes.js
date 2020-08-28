@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { User, Product, Category } = require('../../models');
+const { User, Product, Category, Rating } = require('../../models');
+const sequelize = require('../../config/connection.js');
 
 // get all users
 router.get('/', (req, res) => {
@@ -24,6 +25,17 @@ router.get('/:id', (req, res) => {
         model: Product,
         attributes: ['id', 'product_name', 'description', 'price', 'condition', 'location', 'category_id']
       },
+      {
+        model: Rating,
+        attributes: [ 
+            sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_id = user.id)'),
+            'rating_avg'       
+        ],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      }
     ]
   })
     .then(dbUserData => {

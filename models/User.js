@@ -30,7 +30,7 @@ class User extends Model {
             'category_id',
             'user_id',
             [
-              sequelize.literal('(SELECT (AVG(rating_value) FROM rating WHERE user.id = rating.rated_id)'),
+              sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE user.id = rating.rated_id)'),
               'rating_avg'
             ]
           ]
