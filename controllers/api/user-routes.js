@@ -31,20 +31,6 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Product,
-<<<<<<< HEAD
-        attributes: ['id', 'product_name', 'description', 'price', 'condition', 'location', 'category_id']
-      },
-      {
-        model: Rating,
-        attributes: [ 
-            sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_id = user.id)'),
-            'rating_avg'       
-        ],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
-=======
         attributes: ['id', 
         'product_name', 
         'description', 
@@ -53,7 +39,6 @@ router.get('/:id', (req, res) => {
         'location', 
         'category_id'        
         ]
->>>>>>> Develop
       }
     ]
 })
@@ -114,16 +99,6 @@ router.put('/:id', (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-router.put('/rating', (req, res) => {
-  if(req.session){
-    console.log("About to rate a user!\n");
-    User.rate(
-      { ...req.body, user_id: req.session.user_id },
-      {Rating, User}
-    )
-    .then(updatedRatingData => res.json(updatedRatingData))
-=======
 router.put('/rating/:id', (req, res) => {
   console.log("About to rate a user!\n");
 
@@ -146,7 +121,6 @@ router.put('/rating/:id', (req, res) => {
       }
       res.json(updatedRatingData);
     })
->>>>>>> Develop
     .catch(err => {
       console.log(err);
       res.status(500).json(err); 

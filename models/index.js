@@ -26,17 +26,6 @@ Product.belongsTo(Category, {
   });
 
 Rating.belongsTo(User, {
-<<<<<<< HEAD
-  foreignKey: 'user_id'
-});
-
-Rating.belongsTo(User, {
-  foreignKey: 'rated_id'
-});
-
-User.hasMany(Rating, {
-  foreignKey: 'rated_id'
-=======
   foreignKey: 'rated_by'
 });
 
@@ -46,7 +35,6 @@ Rating.belongsTo(User, {
 
 User.hasMany(Rating, {
   foreignKey: 'user_id'
->>>>>>> Develop
 });
 
 

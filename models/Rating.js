@@ -10,11 +10,7 @@ Rating.init(
             primaryKey: true,
             autoIncrement: true
           },
-<<<<<<< HEAD
-          user_id: {
-=======
           rated_by: {
->>>>>>> Develop
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -22,11 +18,7 @@ Rating.init(
               key: 'id'
             }
           },
-<<<<<<< HEAD
-          rated_id: {
-=======
           user_id: {
->>>>>>> Develop
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
