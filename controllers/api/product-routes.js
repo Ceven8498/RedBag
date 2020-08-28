@@ -60,6 +60,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
+<<<<<<< HEAD
 
 
 //post image
@@ -78,6 +79,17 @@ router.post("/", multer.single("file"), (req, res) => {
 
     Product.create(imageDetails).then(() => {
       res.json(imageDetails)
+=======
+// create new product
+router.post('/', (req, res) => {
+    Product.create({
+      product_name: req.body.product_name,
+      description: req.body.description,
+      price: req.body.price,
+      condition: req.body.condition,
+      location: req.body.location,
+      user_id: req.session.user_id
+>>>>>>> efb25043319b2d2d0d1f3b1b8c9f6fbdc3c74be0
     })
   })
 
