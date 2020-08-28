@@ -3,12 +3,8 @@ const User = require('./User');
 const Category = require('./Category');
 const Product = require('./Product');
 const Rating = require('./Rating');
-<<<<<<< HEAD
-
-=======
 const Comment = require('./Comment');
 // Create associations
->>>>>>> jesus
 
 Product.belongsTo(Category, {
     foreignKey: 'category_id',
@@ -56,8 +52,4 @@ User.hasMany(Comment, {
   onDelete: 'SET NULL'
 });
 
-<<<<<<< HEAD
-module.exports = { User, Category, Product, Rating };
-=======
 module.exports = { User, Category, Product, Rating, Comment };
->>>>>>> jesus
