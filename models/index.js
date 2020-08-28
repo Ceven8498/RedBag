@@ -3,7 +3,6 @@ const User = require('./User');
 const Category = require('./Category');
 const Product = require('./Product');
 
-// Create associations
 
 Product.belongsTo(Category, {
     foreignKey: 'category_id',
@@ -25,8 +24,4 @@ Product.belongsTo(Category, {
   });
 
 
-
-
-
-
-module.exports = { User, Category, Product };
+module.exports = { User, Category, Product};
