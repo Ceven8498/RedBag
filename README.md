@@ -12,3 +12,4 @@ and have .env file\
 DB_NAME='project_two'\
 DB_USER='root'\
 DB_PW='yourpasswordgoeshere'
+DB_SECRET='yoursessionsecrethere'

@@ -50,7 +50,8 @@ router.post('/', (req, res) => {
       description: req.body.description,
       price: req.body.price,
       condition: req.body.condition,
-      location: req.body.location
+      location: req.body.location,
+      user_id: req.session.user_id
     })
       .then(dbProduct => res.json(dbProduct))
       .catch(err => {
