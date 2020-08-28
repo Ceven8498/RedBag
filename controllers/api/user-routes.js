@@ -16,11 +16,22 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   User.findOne({
-    attributes: { exclude: ['password'] },
+    attributes: { 
+      exclude: ['password'], 
+      include: [[sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = user.id)'),
+         'rating_avg']] 
+    },
     where: {
       id: req.params.id
     },
     include: [
+      // {
+      //   model: Rating,
+      //   attributes: [
+      //     [sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = user.id)'),
+      //     'rating_avg']
+      //   ]
+      // },
       {
         model: Product,
         attributes: ['id', 
@@ -30,25 +41,11 @@ router.get('/:id', (req, res) => {
         'condition', 
         'location', 
         'category_id',
-        [
-          sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = user.id)'),
-             'rating_avg'
-        ]
+        
         ]
       }
-      // {
-      //   model: Rating,
-      //   attributes: [ 
-      //       sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_id = user.id)'),
-      //       'rating_avg'       
-      //   ],
-      //   include: {
-      //     model: User,
-      //     attributes: ['username']
-      //   }
-      // }
     ]
-  })
+})
     .then(dbUserData => {
       if (!dbUserData) {
         res.status(404).json({ message: 'No user found with this id' });
