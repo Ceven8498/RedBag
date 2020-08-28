@@ -5,7 +5,11 @@ const sequelize = require('../../config/connection.js');
 // get all users
 router.get('/', (req, res) => {
   User.findAll({
-    attributes: { exclude: ['password'] }
+    attributes: { 
+      exclude: ['password'],
+      include: [[sequelize.literal("(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = user.id)"),
+         'rating_avg']]
+   }
   })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -25,13 +29,6 @@ router.get('/:id', (req, res) => {
       id: req.params.id
     },
     include: [
-      // {
-      //   model: Rating,
-      //   attributes: [
-      //     [sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = user.id)'),
-      //     'rating_avg']
-      //   ]
-      // },
       {
         model: Product,
         attributes: ['id', 
@@ -40,8 +37,7 @@ router.get('/:id', (req, res) => {
         'price', 
         'condition', 
         'location', 
-        'category_id',
-        
+        'category_id'        
         ]
       }
     ]
