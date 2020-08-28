@@ -12,32 +12,40 @@ Product.init(
     // define columns
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       primaryKey: true,
       autoIncrement: true
     },
     product_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
+    },
+    image:{
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    image_name:{
+      type: DataTypes.STRING,
+      allowNull: true
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     price: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
+      allowNull: true,
       validate: {
         isDecimal: true
       }
     },
     condition: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     location: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     category_id: {
       type: DataTypes.INTEGER,

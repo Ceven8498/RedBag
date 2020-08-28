@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 })
 
 router.get("/images", (req, res) => {
-    db.image.findAll({}).then(image => {
+    db.Product.findAll({}).then(image => {
         res.render("images", {images: image})
     })
 })
