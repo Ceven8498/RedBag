@@ -4,7 +4,6 @@ const Category = require('./Category');
 const Product = require('./Product');
 const Rating = require('./Rating');
 
-// Create associations
 
 Product.belongsTo(Category, {
     foreignKey: 'category_id',
@@ -29,6 +28,9 @@ Rating.belongsTo(User, {
   foreignKey: 'rated_by'
 });
 
+<<<<<<< HEAD
+module.exports = { User, Category, Product};
+=======
 Rating.belongsTo(User, {
   foreignKey: 'user_id'
 });
@@ -40,3 +42,4 @@ User.hasMany(Rating, {
 
 
 module.exports = { User, Category, Product, Rating };
+>>>>>>> efb25043319b2d2d0d1f3b1b8c9f6fbdc3c74be0

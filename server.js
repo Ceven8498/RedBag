@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
+const path = require('path');
 // import sequelize connection
 const path = require('path');
 const session = require('express-session');
@@ -26,10 +27,11 @@ const sess = {
   };
   
 
-//app.engine('handlebars', hbs.engine);
-//app.set('view engine', 'handlebars');
+  app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set('view engine', 'handlebars');
 app.use(session(sess));
 app.use(routes);
+
 
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: true }).then(() => {
