@@ -10,7 +10,7 @@ Rating.init(
             primaryKey: true,
             autoIncrement: true
           },
-          user_id: {
+          rated_by: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -18,7 +18,7 @@ Rating.init(
               key: 'id'
             }
           },
-          rated_id: {
+          user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {

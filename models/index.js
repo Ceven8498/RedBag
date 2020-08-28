@@ -26,15 +26,15 @@ Product.belongsTo(Category, {
   });
 
 Rating.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'rated_by'
 });
 
 Rating.belongsTo(User, {
-  foreignKey: 'rated_id'
+  foreignKey: 'user_id'
 });
 
 User.hasMany(Rating, {
-  foreignKey: 'rated_id'
+  foreignKey: 'user_id'
 });
 
 

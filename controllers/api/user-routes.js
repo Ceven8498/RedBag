@@ -23,19 +23,30 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Product,
-        attributes: ['id', 'product_name', 'description', 'price', 'condition', 'location', 'category_id']
-      },
-      {
-        model: Rating,
-        attributes: [ 
-            sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_id = user.id)'),
-            'rating_avg'       
-        ],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
+        attributes: ['id', 
+        'product_name', 
+        'description', 
+        'price', 
+        'condition', 
+        'location', 
+        'category_id',
+        [
+          sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = user.id)'),
+             'rating_avg'
+        ]
+        ]
       }
+      // {
+      //   model: Rating,
+      //   attributes: [ 
+      //       sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_id = user.id)'),
+      //       'rating_avg'       
+      //   ],
+      //   include: {
+      //     model: User,
+      //     attributes: ['username']
+      //   }
+      // }
     ]
   })
     .then(dbUserData => {
