@@ -75,20 +75,21 @@ router.post("/", multer.single("file"), (req, res) => {
 
     const imageDetails = JSON.parse(req.body.data)
     imageDetails.image = publicUrl
-    console.log("Image details are: ", imageDetails.image_name);
+    console.log("Image details are: ", imageDetails);
     //console.log("body data is: ", req.body);
     Product.create({
-      product_name: 'Sample Product',
-      description: 'Our wonderfully amazing sample product',
-      price: 99.99,
-      condition: 'Magnificent',
-      location: 'Austin',
-      user_id: 1,
-      // product_name: req.body.product_name,
-      // description: req.body.description,
-      // price: req.body.price,
-      // condition: req.body.condition,
-      // location: req.body.location,
+      // product_name: 'Sample Product',
+      // description: 'Our wonderfully amazing sample product',
+      // price: 99.99,
+      // condition: 'Magnificent',
+      // location: 'Austin',
+      // user_id: 1,
+      product_name: imageDetails.product_name,
+      description: imageDetails.description,
+      price: imageDetails.price,
+      condition: imageDetails.condition,
+      location: imageDetails.location,
+      user_id: imageDetails.user_id,
       image: publicUrl,
       image_name: imageDetails.image_name
     }).then( dbProduct => res.json(dbProduct))
