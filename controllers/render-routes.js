@@ -21,7 +21,8 @@ router.get("/single-products", (req, res) => {
             'description',
             'price',
             'condition',
-            'location'
+            'location',
+            'image'
         ]
           
         
