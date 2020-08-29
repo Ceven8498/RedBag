@@ -4,6 +4,7 @@ const Category = require('./Category');
 const Product = require('./Product');
 const Rating = require('./Rating');
 const Comment = require('./Comment');
+const Image = require('./Image');
 // Create associations
 
 Product.belongsTo(Category, {
@@ -52,4 +53,4 @@ User.hasMany(Comment, {
   onDelete: 'SET NULL'
 });
 
-module.exports = { User, Category, Product, Rating, Comment };
+module.exports = { User, Category, Product, Rating, Comment, Image };
