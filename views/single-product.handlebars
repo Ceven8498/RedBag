@@ -1,1 +1,10 @@
-<h1>{{dataValues.product_name}}</h1>
+{{#each products}}
+<div>
+    <h1>{{dataValues.product_name}}</h1>
+    <h1>{{dataValues.description}}</h1>
+    <h1>{{dataValues.price}}</h1>
+    <h1>{{dataValues.condition}}</h1>
+    <h1>{{dataValues.location}}</h1>
+</div>
+
+{{/each}}

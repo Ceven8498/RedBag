@@ -1,7 +1,8 @@
 
 const router = require('express').Router();
 const db = require("../models")
-const { Router } = require("express")
+const { Router } = require("express");
+const { precompile } = require('handlebars');
 
 router.get("/", (req, res) => {
     res.render("index")
@@ -14,8 +15,18 @@ router.get("/images", (req, res) => {
 })
 
 router.get("/single-products", (req, res) => {
-    db.Product.findAll({}).then(product_name => {
-        res.render("single-product", {products: product_name})
+    db.Product.findAll({
+        attributes: [
+            'product_name',
+            'description',
+            'price',
+            'condition',
+            'location'
+        ]
+          
+        
+    }).then(products => {
+        res.render("single-product", {products})
     })
 })
 
