@@ -26,13 +26,13 @@ const sess = {
   };
   
 
-  app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set('view engine', 'handlebars');
 app.use(session(sess));
 app.use(routes);
 
 
 // sync sequelize models to the database, then turn on the server
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
