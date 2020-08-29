@@ -92,6 +92,7 @@ router.put('/:id', (req, res) => {
         return;
       }
       res.json(dbUserData);
+      res.redirect('/');
     })
     .catch(err => {
       console.log(err);

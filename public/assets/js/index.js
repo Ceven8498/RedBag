@@ -1,6 +1,6 @@
 console.log("tests2")
 
-$(function () {
+ $(function () {
 
     const form = $("#create-form")
 
@@ -45,5 +45,7 @@ $(function () {
             console.log(result)
             return false
         })
+
+
     })
 })

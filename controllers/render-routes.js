@@ -13,4 +13,10 @@ router.get("/images", (req, res) => {
     })
 })
 
+router.get("/single-products", (req, res) => {
+    db.Product.findAll({}).then(product_name => {
+        res.render("single-product", {products: product_name})
+    })
+})
+
 module.exports = router
