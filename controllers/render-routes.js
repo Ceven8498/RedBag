@@ -1,4 +1,4 @@
-
+const sequelize = require('../config/connection');
 const router = require('express').Router();
 const db = require("../models")
 const { Router } = require("express");
@@ -22,7 +22,8 @@ router.get("/single-products", (req, res) => {
             'price',
             'condition',
             'location',
-            'image'
+            'image',
+            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
         ]
           
         
