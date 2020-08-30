@@ -42,8 +42,8 @@ router.get("/seller-ratings", (req, res)=>{
             'rated_by',
             'rating_value',
             'user_id',
-            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
-           // [sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_by = user.id)'), 'rating_avg']
+            [sequelize.literal('(SELECT username FROM user WHERE rating.user_id = user.id)'), 'user']
+            //[sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_by = user.id)'), 'rating_avg']
         ]
     })
     .then(ratings => {
