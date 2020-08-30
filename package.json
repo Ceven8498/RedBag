@@ -1,11 +1,11 @@
 {
   "name": "project-2",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "seeds": "node seeds/index.js"
+    "seeds": "node seeds/index.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -25,5 +25,14 @@
   },
   "devDependencies": {
     "jest": "^25.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-leal/project-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/e-leal/project-2/issues"
+  },
+  "homepage": "https://github.com/e-leal/project-2#readme",
+  "description": ""
 }
