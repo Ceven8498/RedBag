@@ -5,6 +5,7 @@ const path = require('path');
 // import sequelize connection
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const chmod = require('chmod');
 
 const app = express();
 const PORT = process.env.PORT || 3001;

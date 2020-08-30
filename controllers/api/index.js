@@ -6,7 +6,6 @@ const commentRoutes = require('./comment-routes');
 //const imageRoutes = require('./image-routes');
 
 
-
 router.use('/categories', categoryRoutes);
 router.use('/products', productRoutes);
 router.use('/users', userRoutes);
