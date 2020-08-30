@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Product, Category, User } = require('../../models');
+const withAuth = require('../../utils/auth.js');
 
 
 const Multer = require("multer");

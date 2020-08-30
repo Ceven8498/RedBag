@@ -3,6 +3,7 @@ const router = require('express').Router();
 const db = require("../models")
 const { Router } = require("express");
 const { precompile } = require('handlebars');
+const withAuth = require('../utils/auth.js');
 
 router.get("/", (req, res) => {
     res.render("login")
