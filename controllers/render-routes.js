@@ -36,14 +36,21 @@ router.get("/single-products", (req, res) => {
     })
 })
 
-router.get("/seller-ratings", (req, res)=>{
-    db.Rating.findAll({
+router.get("/seller-ratings/:id", (req, res)=>{
+    db.User.findOne({
+        where: {
+            id: req.params.id
+          },
         attributes: [
-            'rated_by',
-            'rating_value',
-            'user_id',
-            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
-           // [sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_by = user.id)'), 'rating_avg']
+            'id',
+            'username',
+            'email',
+           // [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user'],
+           [
+            sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE user.id = rated_by)'),
+            'rating_avg'
+          ]
+            //[sequelize.literal('(SELECT rating_avg FROM user WHERE rating.rated_by = rating.user_id)'), 'new_rating_average']
         ]
     })
     .then(ratings => {
