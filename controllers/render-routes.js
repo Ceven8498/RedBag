@@ -18,7 +18,7 @@ router.get("/new-product", (req, res) => {
     res.render("index")
 })
 
-router.get("/single-products", (req, res) => {
+router.get("/products", (req, res) => {
     db.Product.findAll({
         attributes: [
             'product_name',
@@ -32,12 +32,36 @@ router.get("/single-products", (req, res) => {
           
         
     }).then(products => {
-        res.render("single-product", {products})
+        res.render("products", {products})
     })
 })
 
-router.get("/seller-ratings", (req, res)=>{
-    db.Rating.findAll({
+router.get("/product/:id", (req, res) => {
+    db.Product.findOne({
+        where: {
+            id: req.params.id
+          },
+        attributes: [
+            'product_name',
+            'description',
+            'price',
+            'condition',
+            'location',
+            'image',
+            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
+        ]
+          
+        
+    }).then(product => {
+        res.render("single-product", {product})
+    })
+})
+
+router.get("/seller/:id", (req, res)=>{
+    db.User.findOne({
+        where: {
+            id: req.params.id
+          },
         attributes: [
             'rated_by',
             'rating_value',
@@ -47,7 +71,7 @@ router.get("/seller-ratings", (req, res)=>{
         ]
     })
     .then(ratings => {
-        res.render("seller-ratings", {ratings})
+        res.render("seller", {ratings})
     })
 })
 router.get('/login', (req, res) => {
