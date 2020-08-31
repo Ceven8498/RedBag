@@ -28,6 +28,7 @@ router.get("/products", (req, res) => {
             'condition',
             'location',
             'image',
+            'user_id',
             [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
         ]
           
@@ -59,7 +60,7 @@ router.get("/product/:id", (req, res) => {
 })
 
 router.get("/seller/:id", (req, res)=>{
-    db.User.findOne({
+    db.Rating.findOne({
         where: {
             id: req.params.id
           },

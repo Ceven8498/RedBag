@@ -1,5 +1,6 @@
-{{#each products}}
 <section class="slideshow">
+{{#each products}}
+
       <div class="slideshow-slide">
         <div class="slideshow-content">
           <h2>{{dataValues.product_name}}</h2>
@@ -9,12 +10,11 @@
           <p><label>Condition: </label> {{dataValues.condition}}</p>
           <p style="color: green"><label style="color: black">Price: $</label> {{dataValues.price}}</p>
           <p><label>Location: </label> {{dataValues.location}}</p>
-        </div>
-        <div class="slideshow-content">
+          <p><label>Seller ID:</label> <a href="/seller/{{dataValues.user_id}}">{{dataValues.user}}</a></p>
         </div>
         <img src="{{dataValues.image}}" />
       </div>
-</section>
+
 {{!-- <div> --}}
     {{!-- <img src="{{dataValues.image}}"/> --}}
     {{!-- <h1>{{dataValues.product_name}}</h1>
@@ -26,3 +26,4 @@
 {{!-- </div> --}}
 
 {{/each}}
+</section>
