@@ -77,6 +77,35 @@ router.get("/seller/:id", (req, res)=>{
     })
 })
 
+router.get('/rating/:id', (req, res) => {
+    console.log("About to rate a user!\n");
+  
+    if(req.session){
+      console.log("About to rate a user!....again\n");
+      console.log("our rater is: ",req.session.user_id);
+      console.log("our user being rated is: ", req.params.id);
+      console.log("our selected rating value is: ", req.body.rating_value);
+      db.Rating.findAll(
+         {
+            rated_by: req.session.user_id,
+            user_id: req.params.id,
+            rating_value: req.body.rating_value
+          }
+      )
+      .then(updatedRatingData => {
+        if (!updatedRatingData) {
+          res.status(404).json({ message: 'No post found with this id' });
+          return;
+        }
+        res.json(updatedRatingData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err); 
+      });
+    }
+  });
+
 router.get("/homepage", (req, res) =>{
     res.render("index2");
 })
