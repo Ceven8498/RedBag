@@ -1,12 +1,22 @@
 {{#each products}}
-<div>
-    <img src="{{dataValues.image}}"/>
-    <h1>{{dataValues.product_name}}</h1>
+<section class="slideshow">
+      <div class="slideshow-slide">
+        <div class="slideshow-content">
+          <h2>{{dataValues.product_name}}</h2>
+          <p>
+            {{dataValues.description}}
+          </p>
+        </div>
+        <img src="{{dataValues.image}}" />
+      </div>
+{{!-- <div> --}}
+    {{!-- <img src="{{dataValues.image}}"/> --}}
+    {{!-- <h1>{{dataValues.product_name}}</h1>
     <h1>{{dataValues.description}}</h1>
     <h1>{{dataValues.price}}</h1>
     <h1>{{dataValues.condition}}</h1>
     <h1>{{dataValues.location}}</h1>
-    <h1>{{dataValues.user}}</h1>
-</div>
+    <h1>{{dataValues.user}}</h1> --}}
+{{!-- </div> --}}
 
 {{/each}}

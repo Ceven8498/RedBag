@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Product, Category, User } = require('../../models');
+const withAuth = require('../../utils/auth.js');
 
 
 const Multer = require("multer");
@@ -63,7 +64,7 @@ router.get('/:id', (req, res) => {
 
 
 //post image
-router.post("/", multer.single("file"), (req, res) => {
+router.post("/", withAuth, multer.single("file"), (req, res) => {
   const newFileName = uuidv1() + "-" + req.file.originalname
   const blob = bucket.file(newFileName)
   const blobStream = blob.createWriteStream()

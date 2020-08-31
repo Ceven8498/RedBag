@@ -21,6 +21,7 @@ const sess = {
     cookie: {},
     resave: false,
     saveUninitialized: true,
+    timezone: 'utc',
     store: new SequelizeStore({
       db: sequelize
     })
