@@ -22,6 +22,7 @@ router.get("/new-product", (req, res) => {
 router.get("/products", (req, res) => {
     db.Product.findAll({
         attributes: [
+            'id',
             'product_name',
             'description',
             'price',
@@ -55,6 +56,7 @@ router.get("/product/:id", (req, res) => {
 
 
     }).then(product => {
+        console.log("product is: ", product);
         res.render("single-product", { product })
     })
 })
