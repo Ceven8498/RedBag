@@ -1,0 +1,24 @@
+<div class="contact" id="log-in-form">
+  <h2 class="contact-heading">
+    Rate Seller
+  </h2>
+  <form class="login-form">
+    <div class="inputs-group">
+      <input type="text" class="inputs-group-text" id="email-login" placeholder="Rate User" />
+    </div>
+     <div class="inputs-group">
+      <input type="submit" class="inputs-group-btn" value="Submit" />
+    </div>
+  </form>
+</div>
+
+{{#each updatedRatingData}}
+<div>
+    <h1>Rated By: {{dataValues.rated_by}}</h1>
+    <h1>Rating: {{dataValues.rating_value}}</h1>
+    <h1>{{dataValues.user_id}}</h1>
+</div>
+
+{{/each}}
+
+<script src="/assets/js/seller.js"></script>
