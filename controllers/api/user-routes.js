@@ -111,7 +111,7 @@ router.put('/rating/:id', (req, res) => {
     console.log("our selected rating value is: ", req.body.rating_value);
     Rating.create(
        {
-          rated_by: req.session.user_id,
+          rated_by: 2,
           user_id: req.params.id,
           rating_value: req.body.rating_value
         }
