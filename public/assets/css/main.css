@@ -459,6 +459,10 @@ html {
     font-weight: 300;
     font-size: 1.6rem; }
 
+    li .ltr {
+      display: inline;
+    }
+
 .btn {
   width: 16rem;
   height: 4rem;
