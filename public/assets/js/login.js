@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/api/products/');
       } else {
         alert(response.statusText);
       }
@@ -43,7 +43,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/single-products/');
       } else {
         alert(response.statusText);
       }
