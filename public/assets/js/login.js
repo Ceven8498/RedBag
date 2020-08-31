@@ -57,7 +57,16 @@ async function loginFormHandler(event) {
     var x = document.getElementById("log-in-form");
     x.style.display = "none";
   }
+
+  function changeBackDisplay(event) {
+    event.preventDefault();
+    var x = document.getElementById("log-in-form");
+    x.style.display = "block";
+    var x = document.getElementById("create-account");
+    x.style.display = "none";
+  }
   
+  document.querySelector('#log-in').addEventListener('click', changeBackDisplay);
 
   document.querySelector('#sign-up').addEventListener('click', changeDisplay);
   
