@@ -75,6 +75,10 @@ router.get("/seller/:id", (req, res)=>{
         res.render("seller", {ratings})
     })
 })
+
+router.get("/homepage", (req, res) =>{
+    res.render("index2");
+})
 router.get('/login', (req, res) => {
  //   if (req.session.loggedIn) {
   //  res.redirect('/');
