@@ -1,3 +1,6 @@
+
+dropdown
+
 * {
   margin: 0;
   padding: 0;
@@ -425,6 +428,10 @@ html {
   .dropdown-link {
     font-weight: 300;
     font-size: 1.6rem; }
+
+    li .ltr {
+      display: inline;
+    }
 
 .btn {
   width: 16rem;
