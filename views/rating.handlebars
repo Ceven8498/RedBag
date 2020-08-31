@@ -3,9 +3,33 @@
     Rate Seller
   </h2>
   <form class="login-form">
-    <div class="inputs-group">
-      <input type="text" class="inputs-group-text" id="email-login" placeholder="Rate User" />
+      <div class="inputs-group">
+      <input type="text" class="inputs-group-text" placeholder="Leave comment about seller" />
     </div>
+      <div class="inputs-group">
+      <li class="second-nav-item dropdown-li">
+              <a href="#" class="second-nav-link">Rating</a>
+              <ul class="dropdown">
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link"><i class="fa fa-star" aria-hidden="true"></i>
+</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></a>
+                </li>
+              </ul>
+            </li>
+            </div>
+    
      <div class="inputs-group">
       <input type="submit" class="inputs-group-btn" value="Submit" />
     </div>
@@ -13,12 +37,23 @@
 </div>
 
 {{#each updatedRatingData}}
-<div>
+<div class="contact">
+<form class="create-form">
+<div class="inputs-group">
+    
     <h1>Rated By: {{dataValues.rated_by}}</h1>
+    </div>
+    <div class="inputs-group">
     <h1>Rating: {{dataValues.rating_value}}</h1>
+    </div>
+    <div class="inputs-group">
     <h1>{{dataValues.user_id}}</h1>
-</div>
+    </div>
+    </div>
 
+
+</form>
+</div>
 {{/each}}
 
 <script src="/assets/js/seller.js"></script>
