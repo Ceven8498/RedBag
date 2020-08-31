@@ -20,6 +20,7 @@ html {
   background-color: #f2f0f1; }
 
 .header {
+  padding: 0px;
   grid-column: 1 / -1;
   grid-row: 1 / 2;
   display: grid;
@@ -127,37 +128,6 @@ html {
       margin: 1rem 0;
       font-size: 1.8rem; }
 
-.slideshow-slide:nth-child(1) {
-  animation-delay: 0s; }
-
-.slideshow-slide:nth-child(2) {
-  animation-delay: 4s; }
-
-/* .slideshow-slide:nth-child(3) {
-  animation-delay: 8s; }
-
-.slideshow-slide:nth-child(4) {
-  animation-delay: 12s; }
-
-.slideshow-slide:nth-child(5) {
-  animation-delay: 16s; } */
-
-@keyframes slideshow {
-  0% {
-    visibility: hidden;
-    opacity: 0; }
-  2% {
-    visibility: visible;
-    opacity: 1; }
-  18% {
-    visibility: visible;
-    opacity: 1; }
-  20% {
-    visibility: hidden;
-    opacity: 0; }
-  100% {
-    visibility: hidden;
-    opacity: 0; } }
 
 .products {
   grid-column: 1 / -1;
@@ -292,7 +262,6 @@ html {
 
 @media (max-width: 1000px) {
   .contact {
-    padding: 0 10rem;
     order: 1;
     margin-top: 4rem; } }
 
@@ -388,20 +357,21 @@ html {
   border: 0.1rem solid #0077b5; }
 
 .logo {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  padding: 1rem; }
+  grid-column: 2 / 1;
+  grid-row: 1 / 1 ;
+  padding: 1rem;
+  justify-self: end; }
   .logo-img {
     width: 10rem;
     height: 100%; }
 
 .heading {
-  grid-column: 1 / -1;
-  grid-row: 2 / 3;
-  text-align: center; }
+  grid-column: 2 / -1;
+  grid-row: 1 / 2;
+  padding-top: 3rem;
+  text-align: left; }
   .heading-text {
-    font-family: "Great Vibes", cursive;
-    font-size: 6rem;
+    font-size: 4rem;
     font-weight: lighter;
     letter-spacing: 0.5rem; }
 
@@ -419,10 +389,10 @@ html {
   position: absolute;
   top: 3rem;
   right: -2.8rem;
-  width: 10rem;
+  width: 14rem;
   background-color: #e6e2e4;
   padding: 1rem;
-  text-align: cneter;
+  text-align: center;
   border-radius: 0.2rem;
   visibility: hidden;
   opacity: 0;
