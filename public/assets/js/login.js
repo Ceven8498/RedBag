@@ -1,4 +1,4 @@
-console.log("test3")
+console.log("test3");
 
 async function loginFormHandler(event) {
     event.preventDefault();
@@ -17,7 +17,7 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/api/products/');
       } else {
         alert(response.statusText);
       }
@@ -43,12 +43,32 @@ async function loginFormHandler(event) {
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard/');
+        document.location.replace('/single-products/');
       } else {
         alert(response.statusText);
       }
     }
   }
+
+  function changeDisplay(event) {
+    event.preventDefault();
+    var x = document.getElementById("create-account");
+    x.style.display = "block";
+    var x = document.getElementById("log-in-form");
+    x.style.display = "none";
+  }
+
+  function changeBackDisplay(event) {
+    event.preventDefault();
+    var x = document.getElementById("log-in-form");
+    x.style.display = "block";
+    var x = document.getElementById("create-account");
+    x.style.display = "none";
+  }
+  
+  document.querySelector('#log-in').addEventListener('click', changeBackDisplay);
+
+  document.querySelector('#sign-up').addEventListener('click', changeDisplay);
   
   document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
   

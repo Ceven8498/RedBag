@@ -1,4 +1,53 @@
-<form class="login-form">
+
+<div class="contact" id="log-in-form">
+  <h2 class="contact-heading">
+    Log In To Your Account
+  </h2>
+  <form class="login-form">
+    <div class="inputs-group">
+      <input type="email" class="inputs-group-text" id="email-login" placeholder="Email Address" />
+    </div>
+    <div class="inputs-group">
+      <input type="password" class="inputs-group-text" id="password-login" placeholder="Password" />
+    </div>
+    <div class="inputs-group">
+      <input type="submit" class="inputs-group-btn" value="Log In" />
+    </div>
+    <div class="inputs-group">
+      <a href="#" id= "sign-up">Don't have an account? Click here to sign up!</a>
+    </div>
+  </form>
+</div>
+
+
+
+<div class="contact" id="create-account" style="display: none;">
+  <h2 class="contact-heading">
+    Create an Account
+  </h2>
+  <form class="signup-form">
+    <div class="inputs-group">
+      <input type="text" class="inputs-group-text" id="username-signup" placeholder="Username" />
+    </div>
+    <div class="inputs-group">
+      <input type="email" class="inputs-group-text" id="email-signup" placeholder="Email" />
+    </div>
+    <div class="inputs-group">
+      <input type="password" class="inputs-group-text" id="password-signup" placeholder="Password" />
+    </div>
+    <div class="inputs-group">
+      <input type="submit" class="inputs-group-btn" value="Sign Up" />
+    </div>
+    <div class="inputs-group">
+      <a href="#" id= "log-in">Log In</a>
+    </div>
+  </form>
+</div>
+
+
+
+
+{{!-- <form class="login-form">
   <div>
     <label for="email-login">email:</label>
     <input type="text" id="email-login" />
@@ -28,6 +77,6 @@
   <div>
     <button type="submit">signup</button>
   </div>
-</form>
+</form> --}}
 
 <script src="/assets/js/login.js"></script>
