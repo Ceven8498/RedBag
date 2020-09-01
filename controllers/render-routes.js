@@ -86,40 +86,31 @@ router.get("/seller/:id", (req, res) => {
         })
 })
 
-router.get('/rating/:id', (req, res) => {
-    console.log("About to rate a user!\n");
+// router.get('/rating/:id', (req, res) => {
+//    // console.log("About to rate a user!\n");
 
-    if (req.session) {
-        console.log("About to rate a user!....again\n");
-        console.log("our rater is: ", req.session.user_id);
-        console.log("our user being rated is: ", req.params.id);
-        console.log("our selected rating value is: ", req.body.rating_value);
-        db.Rating.findAll(
-            {
-                where: {
-                    user_id: req.params.id
-                }
-            }
-            ,
-            {
-                rated_by: req.session.user_id,
-                user_id: req.params.id,
-                rating_value: req.body.rating_value
-            }
-        )
-            .then(updatedRatingData => {
-                if (!updatedRatingData) {
-                    res.status(404).json({ message: 'No post found with this id' });
-                    return;
-                }
-                res.render("rating", { updatedRatingData });
-            })
-            .catch(err => {
-                console.log(err);
-                res.status(500).json(err);
-            });
-    }
-});
+//    // if (req.session) {
+//         // console.log("About to rate a user!....again\n");
+//         // console.log("our rater is: ", req.session.user_id);
+//         // console.log("our user being rated is: ", req.params.id);
+//         // console.log("our selected rating value is: ", req.body.rating_value);
+//         db.Rating.findOne({
+//             where: {
+//                 id: req.params.id
+//             },
+//             attributes: [
+//                 'rated_by',
+//                 'rating_value',
+//                 //'user_id',
+//                 [sequelize.literal('(SELECT username FROM user WHERE rating.user_id = user.id)'), 'user']
+//                 //[sequelize.literal('(SELECT AVG(rating_value) FROM rating WHERE rating.rated_by = user.id)'), 'rating_avg']
+//             ]
+//         })
+//             .then(ratings => {
+//                 res.render("rating", { ratings })
+//             })
+//   //  }
+// });
 
 router.get("/homepage", (req, res) => {
     res.render("index2");

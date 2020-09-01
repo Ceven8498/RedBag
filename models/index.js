@@ -36,21 +36,6 @@ Rating.belongsTo(User, {
 
 User.hasMany(Rating, {
   foreignKey: 'user_id'
-});
-
-Comment.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
-});
-
-Comment.belongsTo(Rating, {
-  foreignKey: 'rating_id',
-  onDelete: 'SET NULL'
-});
-
-User.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
-});
+})
 
 module.exports = { User, Category, Product, Rating, Comment, Image };
