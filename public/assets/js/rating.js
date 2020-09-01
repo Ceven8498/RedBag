@@ -31,17 +31,21 @@ async function ratingFormHanler(event) {
             headers: { 'Content-Type': 'application/json' }
           });
 
-        // $.ajax({
-        //     type: "POST",
-        //     url: "/api/ratings",
-        //     data: rates,
-        //     contentType: false,
-        //     processData: false
-        // }).then(result => {
-        //     document.location.redirect('/');
-        //     console.log(result)
-        //     return false
-        // })
+          $(document).ready(function() {
+            $('#rateMe1').mdbRate();
+          });
+
+        $.ajax({
+            type: "POST",
+            url: "/api/ratings",
+            data: rates,
+            contentType: false,
+            processData: false
+        }).then(result => {
+            document.location.redirect('/');
+            console.log(result)
+            return false
+        })
 
 
     }
