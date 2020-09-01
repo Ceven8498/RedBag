@@ -32,6 +32,12 @@ html {
   grid-gap: 2rem;
   z-index: 100; }
 
+.header-login {
+  text-align: center; }
+.heading-login {
+  text-align: center;
+}
+
 .first-nav {
   grid-column: 7 / 10;
   grid-row: 1 / 2; }
@@ -400,6 +406,8 @@ html {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s; }
+.dropdown ul {
+  position: relative; }
   .dropdown-list {
     display: flex;
     justify-content: space-around;
@@ -432,6 +440,24 @@ html {
     li .ltr {
       display: inline;
     }
+
+    .rcontainer {
+      color:white;
+      border: 2px solid black;
+      height: 370px;
+      width: 85%;
+      margin: 2px;
+      background-color:  grey;
+      text-align: center;
+      display: center;
+  }   
+
+
+  .rcontainer img {
+    height:250px;
+    width: 95%;
+    overflow: hidden;
+  }
 
 .btn {
   width: 16rem;
