@@ -1,14 +1,21 @@
-<section class="slideshow">
+<section class="container-fluid">
+  <div class="row">
 {{#each products}}
 
-<div class="card" style="width: 18rem;">
+
+  
+<div class="rcontainer card col-sm-6 col-md-4 col-lg-3 " >
+  <div class="width">
   <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{dataValues.product_name}}</h5>
     <p class="card-text">{{dataValues.description}}</p>
     <a href="/product/{{dataValues.id}}" class="btn btn-primary">Go somewhere</a>
   </div>
+  
+ </div>
 </div>
+
 {{!-- <div> --}}
     {{!-- <img src="{{dataValues.image}}"/> --}}
     {{!-- <h1>{{dataValues.product_name}}</h1>
@@ -20,4 +27,5 @@
 {{!-- </div> --}}
 
 {{/each}}
+</div>
 </section>

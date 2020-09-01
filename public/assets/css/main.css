@@ -433,6 +433,24 @@ html {
       display: inline;
     }
 
+    .rcontainer {
+      color:white;
+      border: 2px solid black;
+      height: 370px;
+      width: 85%;
+      margin: 2px;
+      background-color:  grey;
+      text-align: center;
+      display: center;
+  }   
+
+
+  .rcontainer img {
+    height:250px;
+    width: 95%;
+    overflow: hidden;
+  }
+
 .btn {
   width: 16rem;
   height: 4rem;
