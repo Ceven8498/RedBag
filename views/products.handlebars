@@ -15,6 +15,25 @@
   
  </div>
 </div>
+<div class="card">
+    {{!-- {{#each product}} --}}
+    <div class="card mb-3">
+        <img class="card-img-top" src="{{prod.image}}"/>
+        <div class="card-body">
+            <h1 class="card-title" >{{prod.product_name}}</h1>
+            <p class="card-text">{{prod.description}}</h1>
+        </div>
+            
+    </div>
+    
+    {{!-- <h1>{{prod.product_name}}</h1>
+    <h1>{{prod.description}}</h1> --}}
+    <h1>{{prod.price}}</h1>
+    <h1>{{prod.condition}}</h1>
+    <h1>{{prod.location}}</h1>
+    <h1>{{prod.user}}</h1>
+    {{!-- {{/each}} --}}
+</div>
 
 {{!-- <div> --}}
     {{!-- <img src="{{dataValues.image}}"/> --}}

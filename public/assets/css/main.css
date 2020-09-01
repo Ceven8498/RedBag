@@ -32,6 +32,12 @@ html {
   grid-gap: 2rem;
   z-index: 100; }
 
+.header-login {
+  text-align: center; }
+.heading-login {
+  text-align: center;
+}
+
 .first-nav {
   grid-column: 7 / 10;
   grid-row: 1 / 2; }
@@ -400,6 +406,8 @@ html {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s; }
+.dropdown ul {
+  position: relative; }
   .dropdown-list {
     display: flex;
     justify-content: space-around;
