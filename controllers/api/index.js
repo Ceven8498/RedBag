@@ -3,9 +3,10 @@ const categoryRoutes = require('./category-routes');
 const productRoutes = require('./product-routes');
 const userRoutes = require('./user-routes');
 const commentRoutes = require('./comment-routes');
+const ratingRoutes = require('./rating-routes');
 //const imageRoutes = require('./image-routes');
 
-
+router.use('/ratings', ratingRoutes);
 router.use('/categories', categoryRoutes);
 router.use('/products', productRoutes);
 router.use('/users', userRoutes);
