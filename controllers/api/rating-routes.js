@@ -13,14 +13,14 @@ router.get('/', (req, res) => {
   router.post('/', (req, res) => {
     // find all products
     console.log("req.body is: ", req.body);
-    const ratingData = JSON.parse(req.body.data);
-    console.log("Our rating data is: ", ratingData);
+    // const ratingData = JSON.parse(req.body.data);
+    // console.log("Our rating data is: ", ratingData);
     Rating.create({
 
-        rated_by: ratingData.rated_by,
-        user_id: ratingData.user_id,
-        rating_value: ratingData.rating_value,
-        rating_comment: ratingData.rating_comment
+        rated_by: req.body.rated_by,
+        user_id: req.body.user_id,
+        rating_value: req.body.rating_value,
+        rating_comment: req.body.rating_comment
 
     }).then(dbProduct => {
       res.json(dbProduct);
