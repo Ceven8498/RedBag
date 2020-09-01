@@ -45,6 +45,7 @@ router.get("/product/:id", (req, res) => {
             id: req.params.id
         },
         attributes: [
+            'id',
             'product_name',
             'description',
             'price',
@@ -56,9 +57,15 @@ router.get("/product/:id", (req, res) => {
 
 
     }).then(product => {
-        console.log("product is: ", product);
-        res.render("single-product", { product })
+        
+        const prod = product.get({ plain: true });
+        console.log("product is: ", prod);
+        res.render("single-product", { prod })
     })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 })
 
 router.get("/seller/:id", (req, res) => {
