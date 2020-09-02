@@ -162,6 +162,52 @@ router.get('/rating/:id', (req, res) => {
     }
 });
 
+router.get("/products/:category", (req, res) => {
+    // find all products
+    db.Category.findOne({
+        
+        where: {
+            category_name: req.params.category
+        },
+        // 'include' tells us what data to provide us after we find all categories in our database
+
+        // '.then() = > {} res.json ();' 
+        // is creating an object, in this case 'dbCategory', and then passing the results of our sequelize database query into that object as json data
+        // hence the  'res.json()'
+      })        .then(categories => {
+        const id = categories.get({ plain: true });
+        console.log(id.id);
+        db.Product.findAll({
+            // attributes are essentially the columns of the table that is associated with the model, in this case it is the Product model
+            where: {
+                category_id: id.id
+            },
+            attributes: [
+                'id',
+                'product_name',
+                'description',
+                'price',
+                'condition',
+                'location',
+                'image',
+                'user_id',
+                // sequelize literals are basically mysql queries
+                [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
+            ]
+    
+        // '.then() = > {} res.json ();' 
+        // is creating an object, in this case 'products', and then passing the results of our sequelize database query into that object as json data
+        // hence the  'res.json()'
+        }).then(products => {
+            // we're establishing this route to render products.handlebars
+            // we're also passing through the sequelize data that our route gives us
+            // this data is established as products, for handlebars to use in the products.handlebars page
+            res.render("category", { products })
+        })
+
+    })
+})
+
 // this is our homepage route, which will render login.handlebars
 // this route is the same handlebar page as localhost:3001/
 // localhost:3001/login
