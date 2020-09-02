@@ -130,13 +130,21 @@ router.get('/rating/:id', (req, res) => {
             {
                 where: {
                     user_id: req.params.id
-                }
+                },
+                attributes: [
+                    'rated_by',
+                    'user_id',
+                    'rating_value',
+                    'rating_comment',
+                    [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'user']
+                ]
             }
             ,
             {
                 rated_by: req.session.user_id,
                 user_id: req.params.id,
                 rating_value: req.body.rating_value
+
             }
         )
             .then(updatedRatingData => {

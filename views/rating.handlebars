@@ -7,7 +7,7 @@
       <input type="text" class="inputs-group-text" id="comment" placeholder="Leave comment about seller" />
     </div>
       <div class="inputs-group">
-      <li class="second-nav-item dropdown-li ltr">
+      <li class="second-nav-item ltr">
               <a href="#" class="second-nav-link">Rating</a>
               <span class="rating">
                 <input type="radio" class="rating-input"
@@ -41,16 +41,13 @@
 <form class="create-form">
 <div class="inputs-group">
     
-    <h1>Rated By: {{dataValues.rated_by}}</h1>
+    <h1>Rated By: {{dataValues.user}}</h1>
     </div>
     <div class="inputs-group">
     <h1>Rating: {{dataValues.rating_value}}</h1>
     </div>
     <div class="inputs-group">
-    <h1>{{dataValues.user_id}}</h1>
-    </div>
-    <div class="inputs-group">
-      <h1>{{dataValues.rating_comment}}</h1>
+      <h1>Comment: {{dataValues.rating_comment}}</h1>
     </div>
     </div>
 
