@@ -13,7 +13,7 @@
               <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
             </div>
             <div class="profile__header">
-              <h4>Tester12</h4>
+              <h4>{{user.dataValues.username}}</h4>
               <p class="text-muted">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nostrum odio cum repellat veniam eligendi rem cumque magnam autem delectus qui.
               </p>
@@ -175,12 +175,12 @@
   </form>
 </div>
 
-{{#each updatedRatingData}}
+{{#each rating}}
 <div class="contact">
 <form class="create-form">
 <div class="inputs-group">
     
-    <h1>Rated By: {{dataValues.user}}</h1>
+    <h1>Rated By: {{dataValues.rater}}</h1>
     </div>
     <div class="inputs-group">
     <h1>Rating: {{dataValues.rating_value}}</h1>

@@ -5,6 +5,7 @@ const db = require("../models")
 const { Router } = require("express");
 const { precompile } = require('handlebars');
 const withAuth = require('../utils/auth.js');
+const { update } = require('../models/User');
 
 // localhost:3001/
 // homepage, displays login.handlebars
@@ -137,7 +138,8 @@ router.get('/rating/:id', (req, res) => {
                     'user_id',
                     'rating_value',
                     'rating_comment',
-                    [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'user']
+                    [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'rater'],
+                    [sequelize.literal("(SELECT username FROM user WHERE id = " + req.params.id + ")"), 'rated']
                 ]
             }
             ,
@@ -153,14 +155,27 @@ router.get('/rating/:id', (req, res) => {
                     res.status(404).json({ message: 'No post found with this id' });
                     return;
                 }
-                res.render("rating", { updatedRatingData });
+                db.User.findOne({
+                    attributes: {
+                      exclude: ['password'],
+                    },
+                    // 'where' is a mysql-derived query that establishes parameters for the data we specifically want from the table
+                    where: {
+                      id: req.params.id
+                    },
+                  })
+                  .then(user => {
+                      console.log(user);
+                      console.log(updatedRatingData);
+                    res.render("rating", { rating: updatedRatingData, user: user})
+                })
             })
             .catch(err => {
                 console.log(err);
                 res.status(500).json(err);
             });
     }
-});
+})
 
 router.get("/products/:category", (req, res) => {
     // find all products
