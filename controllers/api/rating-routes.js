@@ -21,13 +21,15 @@ router.get('/', (req, res) => {
 
 // post routes are used for creating new objects based off of our models
 router.post('/', (req, res) => {
-  console.log("req.body is: ", req.body);
+  // console.log("Our rating by user is: ", req.session);
+  // console.log('Our param data is: ', req.params);
+   console.log("rating value is: ", req.body.rating_value);
   // const ratingData = JSON.parse(req.body.data);
-  // console.log("Our rating data is: ", ratingData);
+  
   Rating.create({
     // because our Rating table has these columns (rated_by, user_id, etc..) we provide these fields in json format
     // if you want to create a rating in insomnia, your json data has to contain these fields
-    rated_by: req.body.rated_by,
+    rated_by: req.session.user_id,
     user_id: req.body.user_id,
     rating_value: req.body.rating_value,
     rating_comment: req.body.rating_comment
