@@ -1,6 +1,6 @@
 console.log("tests2")
 
-$(function () {
+ $(function () {
 
     const form = $("#create-form")
 
@@ -42,8 +42,11 @@ $(function () {
             contentType: false,
             processData: false
         }).then(result => {
+            document.location.replace('/products/');
             console.log(result)
             return false
         })
+
+
     })
 })
