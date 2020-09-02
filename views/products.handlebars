@@ -34,6 +34,9 @@
               </ul>
             </li>
             <li class="second-nav-item">
+              <a href="/new-product" class="second-nav-link">Sell Item</a>
+            </li>
+            <li class="second-nav-item">
               <a href="#" class="second-nav-link">About Us</a>
             </li>
             <li class="second-nav-item">
@@ -47,20 +50,21 @@
 
 <section class="container-fluid">
   <div class="row">
+   
 {{#each products}}
+<a href="/product/{{dataValues.id}}"class="">
 
-
-  
 <div class="rcontainer card" >
   <div class="width">
   <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{dataValues.product_name}}</h5>
-    <p class="card-text">{{dataValues.description}}</p>
-    <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a>
+    <h5 class="cardtitle text-decoration-none" style="text-decoration: none">{{dataValues.product_name}}</h5>
+    <p class="cardtext">{{dataValues.description}}</p>
+    {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
   </div>
 </div>
+
 {{!-- <div class="card"> --}}
     {{!-- {{#each product}} --}}
     {{!-- <div class="card mb-3">
@@ -90,7 +94,8 @@
     <h1>{{dataValues.location}}</h1>
     <h1>{{dataValues.user}}</h1> --}}
 {{!-- </div> --}}
-
+</a>
 {{/each}}
+
 </div>
 </section>
