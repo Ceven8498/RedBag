@@ -13,7 +13,7 @@
               <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
             </div>
             <div class="profile__header">
-              <h4>{{dataValues.rated}}</h4>
+              <h4>{{user.dataValues.username}}</h4>
               <p class="text-muted">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non nostrum odio cum repellat veniam eligendi
                 rem cumque magnam autem delectus qui.
@@ -74,13 +74,9 @@
   <!-- Latest posts -->
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 class="panel-title">Latest Raitings</h4>
+      <h4 class="panel-title">Latest Ratings</h4>
     </div>
-    {{#each updatedRatingData}}
-    
-    <div class="contact">
-<form class="create-form">
-<div class="inputs-group">
+    {{#each rating}}
     <div class="panel-body">
       <div class="profile__comments">
         <div class="profile-comments__item">
@@ -94,7 +90,7 @@
           </div>
           <div class="profile-comments__body">
             <h5 class="profile-comments__sender">
-              {{dataValues.user}} <small>2 hours ago</small>
+              {{dataValues.rater}} <small>2 hours ago</small>
             </h5>
             <div class="profile-comments__content">
               {{dataValues.rating_comment}}
@@ -191,7 +187,7 @@
 <form class="create-form">
 <div class="inputs-group">
     
-    <h1>Rated By: {{dataValues.user}}</h1>
+    <h1>Rated By: {{dataValues.rater}}</h1>
     </div>
     <div class="inputs-group">
     <h1>Rating: {{dataValues.rating_value}}</h1>
