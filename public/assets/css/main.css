@@ -596,8 +596,9 @@ html {
   font-size: .75em;
   color: #999999;
 }
-.panel-body *:first-child {
+.panel-body {
   margin-top: 0;
+  width: 100%
 }
 .panel-footer {
   border-top: 0;

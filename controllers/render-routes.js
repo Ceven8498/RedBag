@@ -154,8 +154,7 @@ router.get('/rating/:id', (req, res) => {
                     res.status(404).json({ message: 'No post found with this id' });
                     return;
                 }
-                const rating = updatedRatingData.get({ plain: true });
-                res.render("rating", { rating });
+                res.render("rating", { updatedRatingData });
             })
             .catch(err => {
                 console.log(err);
