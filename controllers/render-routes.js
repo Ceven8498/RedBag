@@ -68,6 +68,7 @@ router.get("/product/:id", (req, res) => {
         },
         attributes: [
             'id',
+            'user_id',
             'product_name',
             'description',
             'price',
@@ -130,13 +131,21 @@ router.get('/rating/:id', (req, res) => {
             {
                 where: {
                     user_id: req.params.id
-                }
+                },
+                attributes: [
+                    'rated_by',
+                    'user_id',
+                    'rating_value',
+                    'rating_comment',
+                    [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'user']
+                ]
             }
             ,
             {
-                rated_by: 2,//req.session.user_id,
-                user_id: 1,//req.params.id,
-                rating_value: 2//req.body.rating_value
+                rated_by: req.session.user_id,
+                user_id: req.params.id,
+                rating_value: req.body.rating_value
+
             }
         )
             .then(updatedRatingData => {
