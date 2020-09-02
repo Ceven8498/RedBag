@@ -1,10 +1,10 @@
 console.log("tests4")
 
-async function ratingFormHanler(event) {
+ $(function () {
 
-    // const form = $("#comment-form")
+    const form = $("#comment-form")
 
-   // form.on("submit", function (event) {
+    form.on("submit", function (event) {
         event.preventDefault()
         
         const commentText = $("#comment").val().trim()
@@ -25,15 +25,6 @@ async function ratingFormHanler(event) {
 
         //console.log(formData.get("file"))
         console.log("Our lovely rating data: ", rates)
-        const response = await fetch('/api/ratings', {
-            method: 'post',
-            body: rates,
-            headers: { 'Content-Type': 'application/json' }
-          });
-
-          $(document).ready(function() {
-            $('#rateMe1').mdbRate();
-          });
 
         $.ajax({
             type: "POST",
@@ -48,8 +39,5 @@ async function ratingFormHanler(event) {
         })
 
 
-    }
-//     )
-// })
-
-document.getElementById("comment-form").addEventListener('submit', ratingFormHanler);
+    })
+})
