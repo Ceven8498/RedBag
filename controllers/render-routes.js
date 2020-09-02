@@ -1,3 +1,4 @@
+// requirements: sequelize, router, models (as db), withAuth for user-session authorization
 const sequelize = require('../config/connection');
 const router = require('express').Router();
 const db = require("../models")
@@ -5,22 +6,33 @@ const { Router } = require("express");
 const { precompile } = require('handlebars');
 const withAuth = require('../utils/auth.js');
 
+// localhost:3001/
+// homepage, displays login.handlebars
 router.get("/", (req, res) => {
     res.render("login")
 })
 
+// localhost:3001/images
+// images page, displays images.handlebars
 router.get("/images", (req, res) => {
     db.Product.findAll({}).then(image => {
         res.render("images", { images: image })
     })
 })
 
+// localhost:3001/new-product
+// page to create new-product, displays index.handlebars
 router.get("/new-product", (req, res) => {
     res.render("index")
 })
 
+// get all products
+// localhost:3001/products
+// page to view all products, renders products.handlebars
 router.get("/products", (req, res) => {
+    // find all products
     db.Product.findAll({
+        // attributes are essentially the columns of the table that is associated with the model, in this case it is the Product model
         attributes: [
             'id',
             'product_name',
@@ -30,17 +42,27 @@ router.get("/products", (req, res) => {
             'location',
             'image',
             'user_id',
+            // sequelize literals are basically mysql queries
             [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
         ]
 
-
+    // '.then() = > {} res.json ();' 
+    // is creating an object, in this case 'products', and then passing the results of our sequelize database query into that object as json data
+    // hence the  'res.json()'
     }).then(products => {
+        // we're establishing this route to render products.handlebars
+        // we're also passing through the sequelize data that our route gives us
+        // this data is established as products, for handlebars to use in the products.handlebars page
         res.render("products", { products })
     })
 })
 
+// get one product by id
+// localhost:3001/product/idgoeshere
+// page to view one product, renders single-product.handlebars page
 router.get("/product/:id", (req, res) => {
     db.Product.findOne({
+    // 'where' is a mysql-derived query that establishes parameters for the data we specifically want from the table
         where: {
             id: req.params.id
         },
@@ -57,17 +79,21 @@ router.get("/product/:id", (req, res) => {
 
 
     }).then(product => {
-        
+        // taking product data and converting it to plain json
+        // then we call this variable prod, so now we're passing prod into handlebars
+        // instead of products
         const prod = product.get({ plain: true });
         console.log("product is: ", prod);
         res.render("single-product", { prod })
     })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 })
 
+// get one sellers page by id
+// localhost:3001/seller/idgoeshere
 router.get("/seller/:id", (req, res) => {
     db.Rating.findOne({
         where: {
@@ -85,6 +111,12 @@ router.get("/seller/:id", (req, res) => {
             res.render("rating", { ratings })
         })
 })
+
+// i think this is being replaced now by our seller route
+// this route is very similar to the above route but
+// for testing purposes i think its commented out for now
+// just use above route for now
+
 
 // router.get('/rating/:id', (req, res) => {
 //    // console.log("About to rate a user!\n");
@@ -112,9 +144,9 @@ router.get("/seller/:id", (req, res) => {
 //   //  }
 // });
 
-router.get("/homepage", (req, res) => {
-    res.render("index2");
-})
+// this is our homepage route, which will render login.handlebars
+// this route is the same handlebar page as localhost:3001/
+// localhost:3001/login
 router.get('/login', (req, res) => {
     //   if (req.session.loggedIn) {
     //  res.redirect('/');
