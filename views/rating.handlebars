@@ -74,9 +74,9 @@
   <!-- Latest posts -->
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 class="panel-title">Latest Raitings</h4>
+      <h4 class="panel-title">Latest Ratings</h4>
     </div>
-    {{#each updatedRatingData}}
+    {{#each rating}}
     <div class="panel-body">
       <div class="profile__comments">
         <div class="profile-comments__item">
@@ -90,7 +90,7 @@
           </div>
           <div class="profile-comments__body">
             <h5 class="profile-comments__sender">
-              {{dataValues.user}} <small>2 hours ago</small>
+              {{dataValues.rater}} <small>2 hours ago</small>
             </h5>
             <div class="profile-comments__content">
               {{dataValues.rating_comment}}
