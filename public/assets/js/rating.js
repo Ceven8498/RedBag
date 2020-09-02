@@ -29,7 +29,7 @@ console.log("tests4")
         $.ajax({
             type: "POST",
             url: "/api/ratings",
-            data: formData,
+            data: rates,
             contentType: false,
             processData: false
         }).then(result => {

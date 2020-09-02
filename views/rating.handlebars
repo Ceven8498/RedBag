@@ -2,9 +2,9 @@
   <h2 class="contact-heading">
     Rate Seller
   </h2>
-  <form class="login-form">
+  <form class="login-form" id="comment-form">
       <div class="inputs-group">
-      <input type="text" class="inputs-group-text" placeholder="Leave comment about seller" />
+      <input type="text" class="inputs-group-text" id="comment" placeholder="Leave comment about seller" />
     </div>
       <div class="inputs-group">
       <li class="second-nav-item dropdown-li ltr">
@@ -48,6 +48,9 @@
     <div class="inputs-group">
     <h1>{{dataValues.user_id}}</h1>
     </div>
+    <div class="inputs-group">
+      <h1>{{dataValues.rating_comment}}</h1>
+    </div>
     </div>
 
 
@@ -59,10 +62,10 @@
 </div>
 
 <!-- rating.js file -->
-{{!-- <script> 
+{{!-- <script>  
   //Rating Initialization
-//$(document).ready(function() {
-//  $('#rateMe1').mdbRate();
-});</script> --}}
+// $(document).ready(function() {
+  //$('#rateMe1').mdbRate();
+});</script>  --}}
 
-<script src="/assets/js/rating.js"></script>
+<script src="/assets/js/rating2.js"></script>
