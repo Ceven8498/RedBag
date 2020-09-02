@@ -137,7 +137,8 @@ router.get('/rating/:id', (req, res) => {
                     'user_id',
                     'rating_value',
                     'rating_comment',
-                    [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'user']
+                    [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'user'],
+                    [sequelize.literal("(SELECT username FROM user WHERE id = " + req.params.id + ")"), 'rated']
                 ]
             }
             ,
