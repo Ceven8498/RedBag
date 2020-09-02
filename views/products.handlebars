@@ -52,14 +52,14 @@
   <div class="row">
    
 {{#each products}}
-<a href="/product/{{dataValues.id}}"class="">
+<a href="/product/{{dataValues.id}}"class="carda">
 
 <div class="rcontainer card" >
   <div class="width">
   <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
   </div>
   <div class="card-body">
-    <h5 class="cardtitle text-decoration-none" style="text-decoration: none">{{dataValues.product_name}}</h5>
+    <h5 class="cardtitle">{{dataValues.product_name}}</h5>
     <p class="cardtext">{{dataValues.description}}</p>
     {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
   </div>

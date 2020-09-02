@@ -21,80 +21,15 @@
           </div>
         </div>
 
-        <!-- Latest posts -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-          <h4 class="panel-title">Latest Raitings</h4>
-          </div>
-          <div class="panel-body">
-            <div class="profile__comments">
-              <div class="profile-comments__item">
-                <div class="profile-comments__controls">
-                  <a href="#"><i class="fa fa-share-square-o"></i></a>
-                  <a href="#"><i class="fa fa-edit"></i></a>
-                  <a href="#"><i class="fa fa-trash-o"></i></a>
-                </div>
-                <div class="profile-comments__avatar">
-                  <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
-                </div>
-                <div class="profile-comments__body">
-                  <h5 class="profile-comments__sender">
-                    Richard Roe <small>2 hours ago</small>
-                  </h5>
-                  <div class="profile-comments__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, corporis. Voluptatibus odio perspiciatis non quisquam provident, quasi eaque officia.
-                  </div>
-                </div>
-              </div>
-              <div class="profile-comments__item">
-                <div class="profile-comments__controls">
-                  <a href="#"><i class="fa fa-share-square-o"></i></a>
-                  <a href="#"><i class="fa fa-edit"></i></a>
-                  <a href="#"><i class="fa fa-trash-o"></i></a>
-                </div>
-                <div class="profile-comments__avatar">
-                  <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
-                </div>
-                <div class="profile-comments__body">
-                  <h5 class="profile-comments__sender">
-                    Richard Roe <small>5 hours ago</small>
-                  </h5>
-                  <div class="profile-comments__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero itaque dolor laboriosam dolores magnam mollitia, voluptatibus inventore accusamus illo.
-                  </div>
-                </div>
-              </div>
-              <div class="profile-comments__item">
-                <div class="profile-comments__controls">
-                  <a href="#"><i class="fa fa-share-square-o"></i></a>
-                  <a href="#"><i class="fa fa-edit"></i></a>
-                  <a href="#"><i class="fa fa-trash-o"></i></a>
-                </div>
-                <div class="profile-comments__avatar">
-                  <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
-                </div>
-                <div class="profile-comments__body">
-                  <h5 class="profile-comments__sender">
-                    Richard Roe <small>1 day ago</small>
-                  </h5>
-                  <div class="profile-comments__content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, esse, magni aliquam quisquam modi delectus veritatis est ut culpa minus repellendus.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      </div>
-      <div class="col-xs-12 col-sm-3">
+              <div class="col-xs-12 col-sm-3">
         
         <!-- Contact user -->
-        <p>
+        {{!-- <p>
           <div class="inputs-group">
           <input type="submit" class="inputs-group-btn" value="Submit" />
           </div>
-        </p>
+        </p> --}}
 
         <hr class="profile__contact-hr">
         
@@ -136,6 +71,78 @@
       </div>
     </div>
 </div>
+
+        <!-- Latest posts -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+          <h4 class="panel-title">Latest Raitings</h4>
+          </div>
+          {{#each updatedRatingData}}
+          <div class="panel-body">
+            <div class="profile__comments">
+              <div class="profile-comments__item">
+                <div class="profile-comments__controls">
+                  <a href="#"><i class="fa fa-share-square-o"></i></a>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="profile-comments__avatar">
+                  <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+                </div>
+                <div class="profile-comments__body">
+                  <h5 class="profile-comments__sender">
+                    {{dataValues.user}} <small>2 hours ago</small>
+                  </h5>
+                  <div class="profile-comments__content">
+                    {{dataValues.rating_comment}}
+                  </div>
+                  <div class="profile-comments__content">
+                    Rating: {{dataValues.rating_value}}
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+              {{!-- <div class="profile-comments__item">
+                <div class="profile-comments__controls">
+                  <a href="#"><i class="fa fa-share-square-o"></i></a>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="profile-comments__avatar">
+                  <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+                </div>
+                <div class="profile-comments__body">
+                  <h5 class="profile-comments__sender">
+                    Richard Roe <small>5 hours ago</small>
+                  </h5>
+                  <div class="profile-comments__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero itaque dolor laboriosam dolores magnam mollitia, voluptatibus inventore accusamus illo.
+                  </div>
+                </div>
+              </div>
+              <div class="profile-comments__item">
+                <div class="profile-comments__controls">
+                  <a href="#"><i class="fa fa-share-square-o"></i></a>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="profile-comments__avatar">
+                  <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+                </div>
+                <div class="profile-comments__body">
+                  <h5 class="profile-comments__sender">
+                    Richard Roe <small>1 day ago</small>
+                  </h5>
+                  <div class="profile-comments__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, esse, magni aliquam quisquam modi delectus veritatis est ut culpa minus repellendus.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> --}}
 
 <div class="contact" id="log-in-form">
   <h2 class="contact-heading">
