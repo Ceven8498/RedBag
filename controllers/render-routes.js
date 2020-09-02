@@ -68,6 +68,7 @@ router.get("/product/:id", (req, res) => {
         },
         attributes: [
             'id',
+            'user_id',
             'product_name',
             'description',
             'price',

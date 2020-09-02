@@ -4,7 +4,9 @@ dropdown
 * {
   margin: 0;
   padding: 0;
-  font-family: "Josefin Sans", sans-serif; }
+  font-family: "Josefin Sans", sans-serif; 
+}
+
 
 html {
   font-size: 62.5%; }
