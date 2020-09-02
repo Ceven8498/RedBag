@@ -134,9 +134,9 @@ router.get('/rating/:id', (req, res) => {
             }
             ,
             {
-                rated_by: 2,//req.session.user_id,
-                user_id: 1,//req.params.id,
-                rating_value: 2//req.body.rating_value
+                rated_by: req.session.user_id,
+                user_id: req.params.id,
+                rating_value: req.body.rating_value
             }
         )
             .then(updatedRatingData => {
