@@ -137,7 +137,8 @@ router.get('/rating/:id', (req, res) => {
                     'user_id',
                     'rating_value',
                     'rating_comment',
-                    [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'user']
+                    [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'user'],
+                    [sequelize.literal("(SELECT username FROM user WHERE id = " + req.params.id + ")"), 'rated']
                 ]
             }
             ,
@@ -153,7 +154,8 @@ router.get('/rating/:id', (req, res) => {
                     res.status(404).json({ message: 'No post found with this id' });
                     return;
                 }
-                res.render("rating", { updatedRatingData });
+                const rating = updatedRatingData.get({ plain: true });
+                res.render("rating", { rating });
             })
             .catch(err => {
                 console.log(err);
