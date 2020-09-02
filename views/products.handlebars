@@ -1,20 +1,19 @@
 <body>
-    <div class="container-fluid">
-      <header class="header-login">
+      <header class="header">
         <div class="logo">
           <img src="images/logo.png" class="logo-img" />
         </div>
         
-        <div class="heading-login">
+        <div class="heading">
           <h1 class="heading-text">
             Red Bag
           </h1>
         </div>
 
-        <nav class="second-nav">
-          <ul class="second-nav-list">
-            <li class="second-nav-item dropdown-li">
-              <a href="#" class="second-nav-link">Categories</a>
+        <nav class="first-nav">
+          <ul class="first-nav-list">
+            <li class="first-nav-item dropdown-li">
+              <a href="#" class="first-nav-link">Categories</a>
               <ul class="dropdown">
                 <li class="dropdown-item">
                   <a href="#" class="dropdown-link">Eletronic</a>
@@ -33,33 +32,29 @@
                 </li>
               </ul>
             </li>
-            <li class="second-nav-item">
+            <li class="first-nav-item">
               <a href="/new-product" class="second-nav-link">Sell Item</a>
             </li>
-            <li class="second-nav-item">
-              <a href="#" class="second-nav-link">About Us</a>
-            </li>
-            <li class="second-nav-item">
-              <a href="#" class="second-nav-link">Customer Support</a>
+            <li class="first-nav-item">
+              <a href="#" class="first-nav-link">About Us</a>
             </li>
           </ul>
         </nav>
       </header>
-    </div>
 </body>
 
 <section class="container-fluid">
   <div class="row">
    
 {{#each products}}
-<a href="/product/{{dataValues.id}}"class="">
+<a href="/product/{{dataValues.id}}"class="carda">
 
 <div class="rcontainer card" >
   <div class="width">
   <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
   </div>
   <div class="card-body">
-    <h5 class="cardtitle text-decoration-none" style="text-decoration: none">{{dataValues.product_name}}</h5>
+    <h5 class="cardtitle">{{dataValues.product_name}}</h5>
     <p class="cardtext">{{dataValues.description}}</p>
     {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
   </div>
