@@ -99,6 +99,40 @@ router.post('/', (req, res) => {
     });
 });
 
+router.post('/login', (req, res) => {
+
+  // Query operation
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+User.findOne({
+  where: {
+    email: req.body.email
+  }
+}).then(dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: 'No user with that email address!' });
+      return;
+    }
+    // add comment syntax in front of this line in the .then()
+    //res.json({ user: dbUserData });
+    // Verify user
+    const validPassword = dbUserData.checkPassword(req.body.password);
+    console.log("valid password id showing ", validPassword);
+  
+    if (!validPassword) {
+        res.status(400).json({ message: 'Incorrect password!' });
+        return;
+    }
+      
+    req.session.save(() => {
+      // declare session variables
+      req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
+
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+  });    
+});
 
 // put routes are used for updating objects that already exist in our database
 router.put('/:id', (req, res) => {
