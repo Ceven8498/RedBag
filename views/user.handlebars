@@ -1,52 +1,35 @@
-{{> navbar nav}}
-<!-- User profile -->
-<section class="container-fluid">  
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">User profile</h4>
-    </div>
-      <div class="panel-body">
-        <div class="profile__avatar">
-          <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
-        </div>
-          <div class="profile__header">
-            <h4>{{user.dataValues.username}}</h4>
-            <p class="text-muted">
-              Averate User Rating: 4.4 Stars
-            </p>
-          </div>
+<!-- User profile/sidebar -->
+<div class='wrapper'>
+  <div class="col-sm-3 col-md-2 sidebar"> 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">User profile</h4>
       </div>
-            {{#each products}}
-            <a href="/product/{{dataValues.id}}"class="carda"> </a>
-
-              <div class="rcontainer card" >
-                <div class="width">
-                  <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
-                </div>
-                <div class="card-body">
-                  <h5 class="cardtitle">{{dataValues.product_name}}</h5>
-                  <p class="cardtext">{{dataValues.description}}</p>
-                  {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
-                </div>
-              </div>
-
-            {{/each}}
-</section>
-<!-- Comments/Ratings -->
-<div class="panel panel-default">
-  <div class="contact" id="log-in-form">
+        <div class="panel-body">
+          <div class="profile__avatar">
+            <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+          </div>
+            <div class="profile__header">
+              <h4>{{user.dataValues.username}}</h4>
+              <p class="text-muted">
+                Averate User Rating: 4.4 Stars
+              </p>
+            </div>
+        </div>  
+    </div>
+<!-- Raiting -->
     <div class="login-form">
     <div class="inputs-group">
-          <hr class="profile__contact-hr">
-          <!-- Raiting -->
-          <div class="contact">
+      <hr class="profile__contact-hr">
+         
+        <div class="contact">
             <form class="login-form create-form" id="comment-form">
               <div class="inputs-group">
                 <input type="text" class="inputs-group" id="comment" placeholder="Leave comment about seller" />
               </div>
               <div class="inputs-group">
                 <li class="second-nav-item ltr">
-                  <a href="#" class="second-nav-link">Rating</a>
+                  <a href="#" class="second-nav-link"></a>
                   <span class="rating">
                     <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1" value="5">
                     <label for="rating-input-1-5" class="rating-star"></label>
@@ -68,15 +51,10 @@
               </div>
             </form>
           </div>
-        </div>
-      </div>
     </div>
-     </div>
-  </div>
-</div>
-  <!-- Latest posts -->
-  <div class="contact" id="log-in-form">
-  <form class="login-form">
+<!-- Latest posts -->
+    <div class="contact" id="log-in-form">
+    <form class="login-form">
     <div class="inputs-group">
 
       <h4 class="panel-title">Latest Ratings</h4>
@@ -102,7 +80,33 @@
             </div>
           </div>
            </div>
-  </form>
+    {{/each}}
+        </div>
+      </form>
+      </div>
+    </form>
+    </div>
+      <section class="container-fluid">
+        <div class="row">
+  
+          <div class="col-sm-12 main">
+            <h1 class="page-header">Recent Products</h1>
+        
+          {{#each products}}
+          <a href="/product/{{dataValues.id}}"class="carda">
+
+          <div class="rcontainer card" >
+            <div class="width">
+            <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
+            </div>
+            <div class="card-body">
+              <h5 class="cardtitle">{{dataValues.product_name}}</h5>
+              <p class="cardtext">{{dataValues.description}}</p>
+              {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
+          </div>
+          {{/each}}
+        </div>
+      </section>  
+    </div>
+  </div>
 </div>
- 
-        {{/each}}
