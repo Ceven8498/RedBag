@@ -155,7 +155,7 @@ router.get('/user/:id', (req, res) => {
                 attributes: [
                     'rated_by',
                     'user_id',
-                    [sequelize.literal("(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = " + req.params.id + ")"), 'rating_avg'],
+                    // [sequelize.literal("(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = " + req.params.id + ")"), 'rating_avg'],
                     'rating_value',
                     'rating_comment',
                     [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'rater'],
@@ -178,6 +178,8 @@ router.get('/user/:id', (req, res) => {
                 db.User.findOne({
                     attributes: {
                       exclude: ['password'],
+                      [sequelize.literal("(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = user.id)"), 'rating_avg']
+                      
                     },
                     // 'where' is a mysql-derived query that establishes parameters for the data we specifically want from the table
                     where: {
