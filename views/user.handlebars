@@ -1,0 +1,121 @@
+{{> navbar nav}}
+    <div>
+      <div class="col-xs-12 col-sm-9">
+        <!-- User profile -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">User profile</h4>
+          </div>
+          <div class="panel-body">
+            <div class="profile__avatar">
+              <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+            </div>
+            <div class="profile__header">
+              <h4>{{user.dataValues.username}}</h4>
+              <p class="text-muted">
+                Averate User Rating: 
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+{{!-- <body>
+      <header class="header">
+        <div class="logo">
+          <img src="images/logo.png" class="logo-img" />
+        </div>
+        
+        <div class="heading">
+          <h1 class="heading-text">
+            Red Bag
+          </h1>
+        </div>
+
+        <nav class="first-nav">
+          <ul class="first-nav-list">
+            <li class="first-nav-item">
+              <a href="/products" class="second-nav-link">Home</a>
+            </li>
+            <li class="first-nav-item dropdown-li">
+              <a href="#" class="first-nav-link">Categories</a>
+              <ul class="dropdown">
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link">Eletronic</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link">Furniture</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link">Clothing</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link">Outdoors</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="#" class="dropdown-link">Automotive</a>
+                </li>
+              </ul>
+            </li>
+            <li class="first-nav-item">
+              <a href="/new-product" class="second-nav-link">Sell Item</a>
+            </li>
+            <li class="first-nav-item">
+              <a href="#" class="first-nav-link">About Us</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+</body> --}}
+
+<section class="container-fluid">
+  <div class="row">
+   
+{{#each products}}
+<a href="/product/{{dataValues.id}}"class="carda">
+
+<div class="rcontainer card" >
+  <div class="width">
+  <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
+  </div>
+  <div class="card-body">
+    <h5 class="cardtitle">{{dataValues.product_name}}</h5>
+    <p class="cardtext">{{dataValues.description}}</p>
+    {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
+  </div>
+</div>
+
+{{!-- <div class="card"> --}}
+    {{!-- {{#each product}} --}}
+    {{!-- <div class="card mb-3">
+        <img class="card-img-top" src="{{prod.image}}"/>
+        <div class="card-body">
+            <h1 class="card-title" >{{prod.product_name}}</h1>
+            <p class="card-text">{{prod.description}}</h1>
+        </div>
+            
+    </div>
+</div>     --}}
+    {{!-- <h1>{{prod.product_name}}</h1>
+    <h1>{{prod.description}}</h1> --}}
+    {{!-- <h1>{{prod.price}}</h1>
+    <h1>{{prod.condition}}</h1>
+    <h1>{{prod.location}}</h1>
+    <h1>{{prod.user}}</h1> --}}
+    {{!-- {{/each}} --}}
+
+
+{{!-- <div> --}}
+    {{!-- <img src="{{dataValues.image}}"/> --}}
+    {{!-- <h1>{{dataValues.product_name}}</h1>
+    <h1>{{dataValues.description}}</h1>
+    <h1>{{dataValues.price}}</h1>
+    <h1>{{dataValues.condition}}</h1>
+    <h1>{{dataValues.location}}</h1>
+    <h1>{{dataValues.user}}</h1> --}}
+{{!-- </div> --}}
+</a>
+{{/each}}
+
+</div>
+</section>

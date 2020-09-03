@@ -87,9 +87,7 @@ router.get('/user/:id', (req, res) => {
         // we're establishing this route to render products.handlebars
         // we're also passing through the sequelize data that our route gives us
         // this data is established as products, for handlebars to use in the products.handlebars page
-        console.log("our logged in status is: ", req.session.loggedIn);
-
-        res.render("products", { products, loggedIn: req.session.loggedIn })
+        res.render("user", { products, loggedIn: req.session.loggedIn })
     })
 })
 
