@@ -17,6 +17,9 @@ console.log("tests2")
         const productCondition = $("#prodCondition").val().trim();
         //console.log(file)
 
+        const catValue = $("select[name='categoryPick']").val();
+        const catName = $( "#categorySelection option:selected" ).text();
+
         const formData = new FormData
         formData.append("file", file)
 
@@ -24,7 +27,8 @@ console.log("tests2")
             image_name: imageName,
             product_name: productName,
             description: productDescription,
-            user_id: productOwner,
+            category_id: catValue,
+            // user_id: productOwner,
             price: productPrice,
             location: productLocation,
             condition: productCondition
@@ -42,7 +46,7 @@ console.log("tests2")
             contentType: false,
             processData: false
         }).then(result => {
-            document.location.replace('/products/');
+            document.location.replace('/products/'+catName);
             console.log(result)
             return false
         })
