@@ -591,6 +591,8 @@ html {
 .panel {
   box-shadow: none;
   padding: 4rem;
+  justify-content: center;
+    margin: 0 auto;
 }
 .panel-heading {
   border-bottom: 0;
@@ -652,7 +654,7 @@ html {
 }
 /*** Profile: Recent activity ***/
 .profile-comments__item {
-  position: relative;
+  
   padding: 15px 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -841,3 +843,7 @@ a.carda {
   text-align: center;
   margin: 0 auto;
 }
+
+  .flex {
+    display: flex;
+  }
