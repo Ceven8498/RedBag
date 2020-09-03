@@ -1,6 +1,6 @@
 <header class="header">
         <div class="logo">
-          <img src="images/logo.png" class="logo-img" />
+          <img src="/images/logo.png" class="logo-img" />
         </div>
         
         <div class="heading">
@@ -14,15 +14,6 @@
             <li class="first-nav-item">
               <a href="/products" class="second-nav-link">Home</a>
             </li>
-            {{#if loggedIn}}
-            <li class="first-nav-item">
-                <a href="/" class="second-nav-link">Log Out</a>
-            </li>
-            {{else}}
-            <li class="first-nav-item">
-                <a href="/" class="second-nav-link">Log In</a>
-            </li>
-            {{/if}}
             <li class="first-nav-item dropdown-li">
               <a href="#" class="first-nav-link">Categories</a>
               <ul class="dropdown">
@@ -49,6 +40,15 @@
             <li class="first-nav-item">
               <a href="#" class="first-nav-link">About Us</a>
             </li>
+            {{#if loggedIn}}
+            <li class="first-nav-item">
+                <a href="/" class="second-nav-link">{{loggedIn}}</a>
+            </li>
+            {{else}}
+            <li class="first-nav-item">
+                <a href="/" class="second-nav-link">{{loggedIn}}</a>
+            </li>
+            {{/if}}
           </ul>
         </nav>
       </header>

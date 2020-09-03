@@ -10,6 +10,7 @@ const { update } = require('../models/User');
 // localhost:3001/
 // homepage, displays login.handlebars
 router.get("/", (req, res) => {
+    console.log("our logged in status is: ", req.session.loggedIn);
     res.render("login", { loggedIn: req.session.loggedIn})
 })
 
@@ -24,6 +25,7 @@ router.get("/images", (req, res) => {
 // localhost:3001/new-product
 // page to create new-product, displays index.handlebars
 router.get("/new-product", (req, res) => {
+    console.log("our logged in status is: ", req.session.loggedIn);
     res.render("index", {loggedIn: req.session.loggedIn})
 })
 
@@ -54,6 +56,8 @@ router.get("/products", (req, res) => {
         // we're establishing this route to render products.handlebars
         // we're also passing through the sequelize data that our route gives us
         // this data is established as products, for handlebars to use in the products.handlebars page
+        console.log("our logged in status is: ", req.session.loggedIn);
+
         res.render("products", { products, loggedIn: req.session.loggedIn })
     })
 })
@@ -83,6 +87,8 @@ router.get('/user/:id', (req, res) => {
         // we're establishing this route to render products.handlebars
         // we're also passing through the sequelize data that our route gives us
         // this data is established as products, for handlebars to use in the products.handlebars page
+        console.log("our logged in status is: ", req.session.loggedIn);
+
         res.render("products", { products, loggedIn: req.session.loggedIn })
     })
 })
@@ -108,7 +114,9 @@ router.get("/product/:id", (req, res) => {
             'condition',
             'location',
             'image',
-            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
+            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user'],
+            [sequelize.literal('(SELECT email FROM user WHERE product.user_id = user.id)'), 'email']
+
         ]
 
 
@@ -118,6 +126,8 @@ router.get("/product/:id", (req, res) => {
         // instead of products
         const prod = product.get({ plain: true });
         console.log("product is: ", prod);
+        console.log("our logged in status is: ", req.session.loggedIn);
+
         res.render("single-product", { prod, loggedIn: req.session.loggedIn })
     })
         .catch(err => {
@@ -142,6 +152,8 @@ router.get("/seller/:id", (req, res) => {
         ]
     })
         .then(ratings => {
+            console.log("our logged in status is: ", req.session.loggedIn);
+
             res.render("rating", { ratings, loggedIn: req.session.loggedIn })
         })
 })
@@ -168,6 +180,7 @@ router.get('/rating/:id', (req, res) => {
                 attributes: [
                     'rated_by',
                     'user_id',
+                
                     'rating_value',
                     'rating_comment',
                     [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'rater'],
@@ -199,6 +212,8 @@ router.get('/rating/:id', (req, res) => {
                   .then(user => {
                       console.log("Our user is: ", user);
                       console.log("our updated Rating data is: ", updatedRatingData);
+                      console.log("our logged in status is: ", req.session.loggedIn);
+
                     res.render("rating", { rating: updatedRatingData, user: user, loggedIn: req.session.loggedIn})
                 })
             })
@@ -250,6 +265,8 @@ router.get("/products/:category", (req, res) => {
             // we're establishing this route to render products.handlebars
             // we're also passing through the sequelize data that our route gives us
             // this data is established as products, for handlebars to use in the products.handlebars page
+            console.log("our logged in status is: ", req.session.loggedIn);
+
             res.render("products", { products, loggedIn: req.session.loggedIn })
         })
 

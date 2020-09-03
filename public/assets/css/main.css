@@ -328,7 +328,7 @@ html {
 .logo {
   grid-column: 2 / 1;
   grid-row: 1 / 1 ;
-  padding-top: 1.1rem;
+  padding-top: .5rem;
   justify-self: end; }
   .logo-img {
     width: 10rem;
