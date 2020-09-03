@@ -1,22 +1,20 @@
 <body>
-      <header class="header">
+    <div class="container-fluid">
+      <header class="header-login">
         <div class="logo">
           <img src="images/logo.png" class="logo-img" />
         </div>
         
-        <div class="heading">
+        <div class="heading-login">
           <h1 class="heading-text">
             Red Bag
           </h1>
         </div>
 
-        <nav class="first-nav">
-          <ul class="first-nav-list">
-            <li class="first-nav-item">
-              <a href="/products" class="second-nav-link">Home</a>
-            </li>
-            <li class="first-nav-item dropdown-li">
-              <a href="#" class="first-nav-link">Categories</a>
+        <nav class="second-nav">
+          <ul class="second-nav-list">
+            <li class="second-nav-item dropdown-li">
+              <a href="#" class="second-nav-link">Categories</a>
               <ul class="dropdown">
                 <li class="dropdown-item">
                   <a href="#" class="dropdown-link">Eletronic</a>
@@ -35,34 +33,34 @@
                 </li>
               </ul>
             </li>
-            <li class="first-nav-item">
-              <a href="/new-product" class="second-nav-link">Sell Item</a>
+            <li class="second-nav-item">
+              <a href="#" class="second-nav-link">About Us</a>
             </li>
-            <li class="first-nav-item">
-              <a href="#" class="first-nav-link">About Us</a>
+            <li class="second-nav-item">
+              <a href="#" class="second-nav-link">Customer Support</a>
             </li>
           </ul>
         </nav>
       </header>
+    </div>
 </body>
 
 <section class="container-fluid">
   <div class="row">
-   
 {{#each products}}
-<a href="/product/{{dataValues.id}}"class="carda">
 
+
+  
 <div class="rcontainer card" >
   <div class="width">
   <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
   </div>
   <div class="card-body">
-    <h5 class="cardtitle">{{dataValues.product_name}}</h5>
-    <p class="cardtext">{{dataValues.description}}</p>
-    {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
+    <h5 class="card-title">{{dataValues.product_name}}</h5>
+    <p class="card-text">{{dataValues.description}}</p>
+    <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a>
   </div>
 </div>
-
 {{!-- <div class="card"> --}}
     {{!-- {{#each product}} --}}
     {{!-- <div class="card mb-3">
@@ -92,8 +90,7 @@
     <h1>{{dataValues.location}}</h1>
     <h1>{{dataValues.user}}</h1> --}}
 {{!-- </div> --}}
-</a>
-{{/each}}
 
+{{/each}}
 </div>
 </section>

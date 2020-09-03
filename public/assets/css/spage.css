@@ -9,7 +9,9 @@ body {
     overflow-x: hidden; }
   
   img {
-    max-width: 100%; }
+    max-width: 100%;
+    max-height: 650px;
+  }
   
   .preview {
     display: -webkit-box;

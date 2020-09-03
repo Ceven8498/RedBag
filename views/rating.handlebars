@@ -1,4 +1,151 @@
+<body>
+  
+ 
+    <div>
+      <div class="col-xs-12 col-sm-9">
+        <!-- User profile -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">User profile</h4>
+          </div>
+          <div class="panel-body">
+            <div class="profile__avatar">
+              <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+            </div>
+            <div class="profile__header">
+              <h4>{{user.dataValues.username}}</h4>
+              <p class="text-muted">
+                Averate User Rating: 
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    
+
+
+
+
 <div class="contact" id="log-in-form">
+  <div class="login-form">
+    <div class="inputs-group">
+        <div class="col-xs-12 col-sm-3">
+          <hr class="profile__contact-hr">
+          <!-- Raiting -->
+          <div class="contact">
+            <form class="login-form create-form" id="comment-form">
+              <div class="inputs-group">
+                <input type="text" class="inputs-group" id="comment" placeholder="Leave comment about seller" />
+              </div>
+              <div class="inputs-group">
+                <li class="second-nav-item ltr">
+                  <a href="#" class="second-nav-link">Rating</a>
+                  <span class="rating">
+                    <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1" value="5">
+                    <label for="rating-input-1-5" class="rating-star"></label>
+                    <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1" value="4">
+                    <label for="rating-input-1-4" class="rating-star"></label>
+                    <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1" value="3">
+                    <label for="rating-input-1-3" class="rating-star"></label>
+                    <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1" value="2">
+                    <label for="rating-input-1-2" class="rating-star"></label>
+                    <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1" value="1">
+                    <label for="rating-input-1-1" class="rating-star"></label>
+                  </span>
+
+                </li>
+              </div>
+
+              <div class="inputs-group">
+                <input type="submit" class="inputs-group-btn" value="Submit" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+     </div>
+  </div>
+</div>
+ 
+
+  <!-- Latest posts -->
+  <div class="contact" id="log-in-form">
+  <form class="login-form">
+    <div class="inputs-group">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Latest Ratings</h4>
+    </div>
+    {{#each rating}}
+    <div class="panel-body">
+      <div class="profile__comments">
+        <div class="profile-comments__item">
+
+          <div class="profile-comments__avatar">
+            <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+          </div>
+          <div class="profile-comments__body">
+            <h5 class="profile-comments__sender">
+              {{dataValues.rater}} <small>2 hours ago</small>
+            </h5>
+            <div class="profile-comments__content">
+              {{dataValues.rating_comment}}
+            </div>
+            <div class="profile-comments__content">
+              Rating: {{dataValues.rating_value}}
+            </div>
+            </div>
+          </div>
+           </div>
+  </form>
+</div>
+ 
+        {{/each}}
+        {{!-- <div class="profile-comments__item">
+                <div class="profile-comments__controls">
+                  <a href="#"><i class="fa fa-share-square-o"></i></a>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="profile-comments__avatar">
+                  <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+                </div>
+                <div class="profile-comments__body">
+                  <h5 class="profile-comments__sender">
+                    Richard Roe <small>5 hours ago</small>
+                  </h5>
+                  <div class="profile-comments__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero itaque dolor laboriosam dolores magnam mollitia, voluptatibus inventore accusamus illo.
+                  </div>
+                </div>
+              </div>
+              <div class="profile-comments__item">
+                <div class="profile-comments__controls">
+                  <a href="#"><i class="fa fa-share-square-o"></i></a>
+                  <a href="#"><i class="fa fa-edit"></i></a>
+                  <a href="#"><i class="fa fa-trash-o"></i></a>
+                </div>
+                <div class="profile-comments__avatar">
+                  <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+                </div>
+                <div class="profile-comments__body">
+                  <h5 class="profile-comments__sender">
+                    Richard Roe <small>1 day ago</small>
+                  </h5>
+                  <div class="profile-comments__content">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, esse, magni aliquam quisquam modi delectus veritatis est ut culpa minus repellendus.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> --}}
+
+        {{!-- <div class="contact" id="log-in-form">
   <h2 class="contact-heading">
     Rate Seller: {{dataValues.seller}}
   </h2>
@@ -34,14 +181,14 @@
       <input type="submit" class="inputs-group-btn" value="Submit" />
     </div>
   </form>
-</div>
+</div> --}}
 
-{{#each updatedRatingData}}
+        {{!-- {{#each updatedRatingData}}
 <div class="contact">
 <form class="create-form">
 <div class="inputs-group">
     
-    <h1>Rated By: {{dataValues.user}}</h1>
+    <h1>Rated By: {{dataValues.rater}}</h1>
     </div>
     <div class="inputs-group">
     <h1>Rating: {{dataValues.rating_value}}</h1>
@@ -57,13 +204,14 @@
 {{/each}}
 <div class="container">
   <span id="rateMe1"></span>
-</div>
+</div> --}}
 
-<!-- rating.js file -->
-{{!-- <script>  
+        <!-- rating.js file -->
+        {{!-- <script>  
   //Rating Initialization
 // $(document).ready(function() {
   //$('#rateMe1').mdbRate();
 });</script>  --}}
 
-<script src="/assets/js/rating2.js"></script>
+        <script src="/assets/js/rating2.js"></script>
+</body>
