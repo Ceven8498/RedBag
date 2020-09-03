@@ -87,27 +87,24 @@
     </form>
     </div>
       <section class="container-fluid">
-        <div class="row">
-  
-          <div class="col-sm-12 main">
-            <h1 class="page-header">Recent Products</h1>
+        <div class="row main">
         
-          {{#each products}}
-          <a href="/product/{{dataValues.id}}"class="carda">
+      {{#each products}}
+      <a href="/product/{{dataValues.id}}"class="carda">
 
-          <div class="rcontainer card" >
-            <div class="width">
-            <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="cardtitle">{{dataValues.product_name}}</h5>
-              <p class="cardtext">{{dataValues.description}}</p>
-              {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
-          </div>
-          {{/each}}
+      <div class="rcontainer card" >
+        <div class="width">
+        <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
         </div>
-      </section> 
-      </div> 
+        <div class="card-body">
+          <h5 class="cardtitle">{{dataValues.product_name}}</h5>
+          <p class="cardtext">{{dataValues.description}}</p>
+          {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
+        </div>
+      </div>
+      {{/each}}
+        </div>
+      </section>  
     </div>
   </div>
 </div>
