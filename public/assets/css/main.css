@@ -536,8 +536,8 @@ html {
       
 /*** General styles ***/
 .panel {
-  grid-template-columns: 75px 35rem 300px;
-  grid-template-rows: 75px 75px auto;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
   display: grid;
   box-shadow: none;
   padding: 2rem;

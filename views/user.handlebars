@@ -1,37 +1,37 @@
 {{> navbar nav}}
 <!-- User profile -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">User profile</h4>
-          </div>
-          <div class="panel-body">
-            <div class="profile__avatar">
-              <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
-            </div>
-            <div class="profile__header">
-              <h4>{{user.dataValues.username}}</h4>
-              <p class="text-muted">
-                Averate User Rating: 4.4 Stars
-              </p>
-            </div>
-          </div>
-          {{#each products}}
-          <a href="/product/{{dataValues.id}}"class="carda">
-
-            <div class="rcontainer card" >
-              <div class="width">
-                <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
-              </div>
-              <div class="card-body">
-                <h5 class="cardtitle">{{dataValues.product_name}}</h5>
-                <p class="cardtext">{{dataValues.description}}</p>
-                {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
-              </div>
-            </div>
-
-          </a>
-          {{/each}}
+<section class="container-fluid">  
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">User profile</h4>
+    </div>
+      <div class="panel-body">
+        <div class="profile__avatar">
+          <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
         </div>
+          <div class="profile__header">
+            <h4>{{user.dataValues.username}}</h4>
+            <p class="text-muted">
+              Averate User Rating: 4.4 Stars
+            </p>
+          </div>
+      </div>
+            {{#each products}}
+            <a href="/product/{{dataValues.id}}"class="carda"> </a>
+
+              <div class="rcontainer card" >
+                <div class="width">
+                  <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                  <h5 class="cardtitle">{{dataValues.product_name}}</h5>
+                  <p class="cardtext">{{dataValues.description}}</p>
+                  {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
+                </div>
+              </div>
+
+            {{/each}}
+</section>
 <!-- Comments/Ratings -->
 <div class="panel panel-default">
   <div class="contact" id="log-in-form">
