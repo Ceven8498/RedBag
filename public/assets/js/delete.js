@@ -2,6 +2,10 @@ console.log("tests4")
 
 async function deleteProduct(event) {
         event.preventDefault()
+
+        const confirm = window.confirm("Are you sure you want to delete this product?");
+
+        if(confirm == true) {
         console.log("deleting product...");
         const url = (location.href).split('/')
         const id = url[url.length-1];
@@ -27,10 +31,15 @@ async function deleteProduct(event) {
             processData: false
         }).then(result => {
             console.log(result)
+           
             return false
         })
 
-
+        
+    } else {
+        return;
+    }
+    document.location.replace('/products/');
     }
 //     )
 // })
