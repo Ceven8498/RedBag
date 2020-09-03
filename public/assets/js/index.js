@@ -7,11 +7,11 @@ console.log("tests2")
     form.on("submit", function (event) {
         event.preventDefault()
         
-        const imageName = $("#name").val().trim()
+        //const imageName = $("#name").val().trim()
         const file = $("#userImg")[0].files[0]
-        const productName = $("#prodName").val().trim();
+         const productName = $("#prodName").val().trim();
         const productDescription = $("#prodDescription").val().trim();
-        const productOwner = $("#prodOwner").val().trim();
+        // const productOwner = $("#prodOwner").val().trim();
         const productPrice = $("#prodPrice").val().trim();
         const productLocation = $("#prodLocation").val().trim();
         const productCondition = $("#prodCondition").val().trim();
@@ -24,7 +24,7 @@ console.log("tests2")
         formData.append("file", file)
 
         let userData = {
-            image_name: imageName,
+            image_name: "productName",
             product_name: productName,
             description: productDescription,
             category_id: catValue,
