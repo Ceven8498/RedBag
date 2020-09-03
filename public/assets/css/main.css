@@ -74,7 +74,8 @@ html {
       grid-column: 4 / 10; } }
   @media (max-width: 560px) {
     .first-nav {
-      grid-column: 2 / 10; } }
+      grid-column: 2 / 10;
+      font-size: 2px; } }
 
 .second-nav {
   grid-column: 3 / 8;
@@ -324,56 +325,6 @@ html {
     .contact .inputs-group-btn:hover {
       background-color: #333; }
 
-/* .contact .social-icons {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  box-sizing: border-box; }
-  .contact .social-icons-item {
-    list-style: none; }
-  .contact .social-icons-link {
-    text-decoration: none;
-    width: 4rem;
-    height: 4rem;
-    border: 0.1rem solid #333;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    @media (max-width: 560px) {
-      .contact .social-icons-link {
-        width: 3rem;
-        height: 3rem; } }
-    .contact .social-icons-link i {
-      font-size: 2rem; }
-      @media (max-width: 560px) {
-        .contact .social-icons-link i {
-          font-size: 1.8rem; } } */
-
-.social-icons-item:nth-child(1) .social-icons-link {
-  color: #3b5998;
-  border: 0.1rem solid #3b5998; }
-
-.social-icons-item:nth-child(2) .social-icons-link {
-  color: #b31217;
-  border: 0.1rem solid #b31217; }
-
-.social-icons-item:nth-child(3) .social-icons-link {
-  color: #dc4e41;
-  border: 0.1rem solid #dc4e41; }
-
-.social-icons-item:nth-child(4) .social-icons-link {
-  color: #55acee;
-  border: 0.1rem solid #55acee; }
-
-.social-icons-item:nth-child(5) .social-icons-link {
-  color: #517fa4;
-  border: 0.1rem solid #517fa4; }
-
-.social-icons-item:nth-child(6) .social-icons-link {
-  color: #0077b5;
-  border: 0.1rem solid #0077b5; }
-
 .logo {
   grid-column: 2 / 1;
   grid-row: 1 / 1 ;
@@ -388,13 +339,17 @@ html {
 .heading {
   grid-column: 2 / -1;
   grid-row: 1 / 2;
-  padding-top: 3rem;
+  padding-top: 4rem;
   text-align: left; }
   .heading-text {
     font-size: 4rem;
-    font-weight: lighter;
-    letter-spacing: .25rem;
- }
+    font-weight: lighter; }
+    @media (max-width: 767px) {
+      .heading-text {
+          display:none; } }
+    @media (max-width: 360px) {
+      .first-nav-list {
+          font-size: 8px; } }
 
 .dropdown-li {
   position: relative; }
@@ -460,8 +415,7 @@ html {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
-  margin-left: auto;
-}    
+  margin-left: auto; }  
 
 .rcontainer {
   color:white;
@@ -473,9 +427,7 @@ html {
   color: black;
   text-align: center;
   display: center; 
-  border-radius: 2rem;
-}   
-
+  border-radius: 2rem; }   
 
 .rcontainer img {
    height:250px;
@@ -484,9 +436,7 @@ html {
 
 .row {
   justify-content: center;
-  padding: 1rem
-
-}
+  padding: 1rem; }
 
 .btn {
   width: 16rem;
@@ -584,11 +534,11 @@ html {
   overflow:hidden;
 }
       
-/**
- * Panels
- */
 /*** General styles ***/
 .panel {
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  display: grid;
   box-shadow: none;
   padding: 4rem;
   justify-content: center;
@@ -608,33 +558,24 @@ html {
   margin-top: 0;
   width: 100%
 }
-.panel-footer {
-  border-top: 0;
+.contact {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
 }
 
 .panel-default > .panel-heading {
     color: #333333;
     background-color: transparent;
-    border-color: rgba(0, 0, 0, 0.07);
-}
+    border-color: rgba(0, 0, 0, 0.07); }
 
-/**
- * Profile
- */
 /*** Profile: Header  ***/
 .profile__avatar {
-  float: left;
+  justify-self: start;
   width: 60px;
   height: 60px;
   border-radius: 50%;
   margin-right: 20px;
   overflow: hidden;
-}
-@media (min-width: 768px) {
-  .profile__avatar {
-    width: 100px;
-    height: 100px;
-  }
 }
 .profile__avatar > img {
   width: 100%;
@@ -715,12 +656,9 @@ html {
 @media (max-width: 767px) {
   .profile-comments__sender > small {
     display: block;
-    margin: 5px 0 10px;
-  }
-}
+    margin: 5px 0 10px; } }
 .profile-comments__content {
-  color: #999999;
-}
+  color: #999999; }
 /*** Profile: Contact ***/
 .profile__contact-btn {
   padding: 12px 20px;
@@ -791,7 +729,7 @@ html {
   background-color: white;
   border: 1px solid lightgray; 
   border-radius: 2rem;
-  width: 50rem;
+  width: 40rem;
   margin-top: 10rem;
   height: 120%;
   box-shadow: 10px 10px 5px grey;
@@ -844,6 +782,24 @@ a.carda {
   margin: 0 auto;
 }
 
-  .flex {
-    display: flex;
-  }
+.sidebar {
+  white-space: normal;
+  display: inline-block;
+  height: auto;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: #f5f5f5;
+  border-right: 1px solid #eee; }
+  @media (min-width: 768px) {
+    .main {
+    height: auto;
+    overflow: scroll;
+    padding-right: 40px;
+    padding-left: 10px;
+    }
+    }
+.wrapper {
+      white-space: nowrap;
+      font-size: 0; }
+  
