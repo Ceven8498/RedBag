@@ -575,10 +575,6 @@ html {
   margin-right: 20px;
   overflow: hidden;
 }
-@media (min-width: 768px) {
-  .profile__avatar {
-  }
-}
 .profile__avatar > img {
   width: 100%;
   height: auto;
