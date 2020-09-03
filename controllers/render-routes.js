@@ -188,7 +188,7 @@ router.get('/user/:id', (req, res) => {
                           // in this case, we will also include the Products that are associated with each category
                           model: db.Product,
                           // attributes are essentially the columns of the table that is associated with the model, in this case it is the Product model
-                          attributes: ['id', 'product_name', 'description', 'price', 'condition', 'location', 'category_id', 'user_id']
+                          attributes: ['id', 'product_name', 'description', 'price', 'condition', 'location', 'category_id', 'user_id', 'image']
                         },
                       ]
                   })
