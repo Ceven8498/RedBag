@@ -62,38 +62,6 @@ router.get("/products", (req, res) => {
     })
 })
 
-router.get('/user/:id', (req, res) => {
-    console.log("About to rate a user!\n");
-
-    db.Product.findAll({
-
-        where: {
-            user_id: req.params.id
-        },
-        attributes: [
-            'id',
-            'product_name',
-            'description',
-            'price',
-            'condition',
-            'location',
-            'image',
-            'user_id',
-            // sequelize literals are basically mysql queries
-            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
-        ]
-
-    }).then(products => {
-        // we're establishing this route to render products.handlebars
-        // we're also passing through the sequelize data that our route gives us
-        // this data is established as products, for handlebars to use in the products.handlebars page
-        res.render("user", { products, loggedIn: req.session.loggedIn })
-    })
-})
-
-
-
-
 // get one product by id
 // localhost:3001/product/idgoeshere
 // page to view one product, renders single-product.handlebars page
@@ -170,7 +138,7 @@ router.get("/seller/:id", (req, res) => {
 // just use above route for now
 
 
-router.get('/rating/:id', (req, res) => {
+router.get('/user/:id', (req, res) => {
     console.log("About to rate a user!\n");
 
     if (req.session) {
@@ -187,7 +155,7 @@ router.get('/rating/:id', (req, res) => {
                 attributes: [
                     'rated_by',
                     'user_id',
-                
+                    [sequelize.literal("(SELECT AVG(rating_value) FROM rating WHERE rating.user_id = " + req.params.id + ")"), 'rating_avg'],
                     'rating_value',
                     'rating_comment',
                     [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'rater'],
@@ -215,13 +183,21 @@ router.get('/rating/:id', (req, res) => {
                     where: {
                       id: req.params.id
                     },
+                    include: [
+                        {
+                          // in this case, we will also include the Products that are associated with each category
+                          model: db.Product,
+                          // attributes are essentially the columns of the table that is associated with the model, in this case it is the Product model
+                          attributes: ['id', 'product_name', 'description', 'price', 'condition', 'location', 'category_id', 'user_id', 'image']
+                        },
+                      ]
                   })
                   .then(user => {
                       console.log("Our user is: ", user);
                       console.log("our updated Rating data is: ", updatedRatingData);
                       console.log("our logged in status is: ", req.session.loggedIn);
 
-                    res.render("rating", { rating: updatedRatingData, user: user})
+                    res.render("user", { rating: updatedRatingData, user: user, loggedIn: req.session.loggedIn})
                 })
             })
             .catch(err => {

@@ -52,7 +52,7 @@ async function ratingFormHanler(event) {
         //     return false
         // })
 
-
+        location.reload();
     }
 //     )
 // })
