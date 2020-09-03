@@ -108,7 +108,9 @@ router.get("/product/:id", (req, res) => {
             'condition',
             'location',
             'image',
-            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
+            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user'],
+            [sequelize.literal('(SELECT email FROM user WHERE product.user_id = user.id)'), 'email']
+
         ]
 
 
@@ -168,6 +170,7 @@ router.get('/rating/:id', (req, res) => {
                 attributes: [
                     'rated_by',
                     'user_id',
+                
                     'rating_value',
                     'rating_comment',
                     [sequelize.literal('(SELECT username FROM user WHERE rating.rated_by = user.id)'), 'rater'],
