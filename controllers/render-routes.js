@@ -189,11 +189,11 @@ router.get('/rating/:id', (req, res) => {
                 }
                 db.User.findOne({
                     attributes: {
-                        exclude: ['password'],
+                      exclude: ['password'],
                     },
                     // 'where' is a mysql-derived query that establishes parameters for the data we specifically want from the table
                     where: {
-                        id: req.params.id
+                      id: req.params.id
                     },
                   })
                   .then(user => {
@@ -201,11 +201,6 @@ router.get('/rating/:id', (req, res) => {
                       console.log("our updated Rating data is: ", updatedRatingData);
                     res.render("rating", { rating: updatedRatingData, user: user})
                 })
-                    .then(user => {
-                        console.log(user);
-                        console.log(updatedRatingData);
-                        res.render("rating", { rating: updatedRatingData, user: user })
-                    })
             })
             .catch(err => {
                 console.log(err);
