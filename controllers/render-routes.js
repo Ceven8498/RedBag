@@ -284,4 +284,15 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+
+router.get('/delete/:id', (req, res) => {
+    //   if (req.session.loggedIn) {
+    //  res.redirect('/');
+    //return;
+    // }
+
+    res.render('delete-button');
+});
+
+
 module.exports = router
