@@ -10,7 +10,7 @@ const { update } = require('../models/User');
 // localhost:3001/
 // homepage, displays login.handlebars
 router.get("/", (req, res) => {
-    res.render("login")
+    res.render("login", { loggedIn: req.session.loggedIn})
 })
 
 // localhost:3001/images
@@ -24,7 +24,7 @@ router.get("/images", (req, res) => {
 // localhost:3001/new-product
 // page to create new-product, displays index.handlebars
 router.get("/new-product", (req, res) => {
-    res.render("index")
+    res.render("index", {loggedIn: req.session.loggedIn})
 })
 
 // get all products
@@ -54,7 +54,7 @@ router.get("/products", (req, res) => {
         // we're establishing this route to render products.handlebars
         // we're also passing through the sequelize data that our route gives us
         // this data is established as products, for handlebars to use in the products.handlebars page
-        res.render("products", { products })
+        res.render("products", { products, loggedIn: req.session.loggedIn })
     })
 })
 
@@ -83,7 +83,7 @@ router.get('/user/:id', (req, res) => {
         // we're establishing this route to render products.handlebars
         // we're also passing through the sequelize data that our route gives us
         // this data is established as products, for handlebars to use in the products.handlebars page
-        res.render("products", { products })
+        res.render("products", { products, loggedIn: req.session.loggedIn })
     })
 })
 
@@ -118,7 +118,7 @@ router.get("/product/:id", (req, res) => {
         // instead of products
         const prod = product.get({ plain: true });
         console.log("product is: ", prod);
-        res.render("single-product", { prod })
+        res.render("single-product", { prod, loggedIn: req.session.loggedIn })
     })
         .catch(err => {
             console.log(err);
@@ -142,7 +142,7 @@ router.get("/seller/:id", (req, res) => {
         ]
     })
         .then(ratings => {
-            res.render("rating", { ratings })
+            res.render("rating", { ratings, loggedIn: req.session.loggedIn })
         })
 })
 
@@ -199,7 +199,7 @@ router.get('/rating/:id', (req, res) => {
                   .then(user => {
                       console.log("Our user is: ", user);
                       console.log("our updated Rating data is: ", updatedRatingData);
-                    res.render("rating", { rating: updatedRatingData, user: user})
+                    res.render("rating", { rating: updatedRatingData, user: user, loggedIn: req.session.loggedIn})
                 })
             })
             .catch(err => {
@@ -250,7 +250,7 @@ router.get("/products/:category", (req, res) => {
             // we're establishing this route to render products.handlebars
             // we're also passing through the sequelize data that our route gives us
             // this data is established as products, for handlebars to use in the products.handlebars page
-            res.render("products", { products })
+            res.render("products", { products, loggedIn: req.session.loggedIn })
         })
 
     })
