@@ -165,8 +165,8 @@ router.get('/rating/:id', (req, res) => {
                     },
                   })
                   .then(user => {
-                      console.log(user);
-                      console.log(updatedRatingData);
+                      console.log("Our user is: ", user);
+                      console.log("our updated Rating data is: ", updatedRatingData);
                     res.render("rating", { rating: updatedRatingData, user: user})
                 })
             })
