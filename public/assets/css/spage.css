@@ -58,7 +58,9 @@ body {
     margin-top: 50px;
     background: #eee;
     padding: 3em;
-    line-height: 1.5em; }
+    line-height: 1.5em; 
+    background-color: rgba(211,211,211, .1);
+  }
   
   @media screen and (min-width: 997px) {
     .wrapper {
