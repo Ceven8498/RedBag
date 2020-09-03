@@ -125,8 +125,16 @@ router.get("/product/:id", (req, res) => {
         const prod = product.get({ plain: true });
         console.log("product is: ", prod);
         console.log("our logged in status is: ", req.session.loggedIn);
+        let isUser = false
+        console.log(isUser);
+        console.log(req.session.user_id)
+        console.log(product.user_id);
 
-        res.render("single-product", { prod, loggedIn: req.session.loggedIn })
+        if (req.session.user_id == product.user_id) {
+            isUser = true
+        }
+        console.log(isUser);
+        res.render("single-product", { prod, loggedIn: req.session.loggedIn, isUser: isUser})
     })
         .catch(err => {
             console.log(err);
@@ -170,6 +178,7 @@ router.get('/rating/:id', (req, res) => {
         console.log("our rater is: ", req.session.user_id);
         console.log("our user being rated is: ", req.params.id);
         console.log("our selected rating value is: ", req.body.rating_value);
+        
         db.Rating.findAll(
             {
                 where: {
