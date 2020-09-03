@@ -1,7 +1,5 @@
 {{> navbar nav}}
-    <div>
-      <div class="col-xs-12 col-sm-9">
-        <!-- User profile -->
+<!-- User profile -->
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">User profile</h4>
@@ -13,109 +11,98 @@
             <div class="profile__header">
               <h4>{{user.dataValues.username}}</h4>
               <p class="text-muted">
-                Averate User Rating: 
+                Averate User Rating: 4.4 Stars
               </p>
             </div>
           </div>
+          {{#each products}}
+          <a href="/product/{{dataValues.id}}"class="carda">
+
+            <div class="rcontainer card" >
+              <div class="width">
+                <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <h5 class="cardtitle">{{dataValues.product_name}}</h5>
+                <p class="cardtext">{{dataValues.description}}</p>
+                {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
+              </div>
+            </div>
+
+          </a>
+          {{/each}}
         </div>
-        
+<!-- Comments/Ratings -->
+<div class="panel panel-default">
+  <div class="contact" id="log-in-form">
+    <div class="login-form">
+    <div class="inputs-group">
+          <hr class="profile__contact-hr">
+          <!-- Raiting -->
+          <div class="contact">
+            <form class="login-form create-form" id="comment-form">
+              <div class="inputs-group">
+                <input type="text" class="inputs-group" id="comment" placeholder="Leave comment about seller" />
+              </div>
+              <div class="inputs-group">
+                <li class="second-nav-item ltr">
+                  <a href="#" class="second-nav-link">Rating</a>
+                  <span class="rating">
+                    <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1" value="5">
+                    <label for="rating-input-1-5" class="rating-star"></label>
+                    <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1" value="4">
+                    <label for="rating-input-1-4" class="rating-star"></label>
+                    <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1" value="3">
+                    <label for="rating-input-1-3" class="rating-star"></label>
+                    <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1" value="2">
+                    <label for="rating-input-1-2" class="rating-star"></label>
+                    <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1" value="1">
+                    <label for="rating-input-1-1" class="rating-star"></label>
+                  </span>
+
+                </li>
+              </div>
+
+              <div class="inputs-group">
+                <input type="submit" class="inputs-group-btn" value="Submit" />
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-{{!-- <body>
-      <header class="header">
-        <div class="logo">
-          <img src="images/logo.png" class="logo-img" />
-        </div>
-        
-        <div class="heading">
-          <h1 class="heading-text">
-            Red Bag
-          </h1>
-        </div>
-
-        <nav class="first-nav">
-          <ul class="first-nav-list">
-            <li class="first-nav-item">
-              <a href="/products" class="second-nav-link">Home</a>
-            </li>
-            <li class="first-nav-item dropdown-li">
-              <a href="#" class="first-nav-link">Categories</a>
-              <ul class="dropdown">
-                <li class="dropdown-item">
-                  <a href="#" class="dropdown-link">Eletronic</a>
-                </li>
-                <li class="dropdown-item">
-                  <a href="#" class="dropdown-link">Furniture</a>
-                </li>
-                <li class="dropdown-item">
-                  <a href="#" class="dropdown-link">Clothing</a>
-                </li>
-                <li class="dropdown-item">
-                  <a href="#" class="dropdown-link">Outdoors</a>
-                </li>
-                <li class="dropdown-item">
-                  <a href="#" class="dropdown-link">Automotive</a>
-                </li>
-              </ul>
-            </li>
-            <li class="first-nav-item">
-              <a href="/new-product" class="second-nav-link">Sell Item</a>
-            </li>
-            <li class="first-nav-item">
-              <a href="#" class="first-nav-link">About Us</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-</body> --}}
-
-<section class="container-fluid">
-  <div class="row">
-   
-{{#each products}}
-<a href="/product/{{dataValues.id}}"class="carda">
-
-<div class="rcontainer card" >
-  <div class="width">
-  <img class="card-img-top" src="{{dataValues.image}}" alt="Card image cap">
-  </div>
-  <div class="card-body">
-    <h5 class="cardtitle">{{dataValues.product_name}}</h5>
-    <p class="cardtext">{{dataValues.description}}</p>
-    {{!-- <a href="/product/{{dataValues.id}}"class="btn1 btn-pro1">See Details</a> --}}
-  </div>
-</div>
-
-{{!-- <div class="card"> --}}
-    {{!-- {{#each product}} --}}
-    {{!-- <div class="card mb-3">
-        <img class="card-img-top" src="{{prod.image}}"/>
-        <div class="card-body">
-            <h1 class="card-title" >{{prod.product_name}}</h1>
-            <p class="card-text">{{prod.description}}</h1>
-        </div>
-            
     </div>
-</div>     --}}
-    {{!-- <h1>{{prod.product_name}}</h1>
-    <h1>{{prod.description}}</h1> --}}
-    {{!-- <h1>{{prod.price}}</h1>
-    <h1>{{prod.condition}}</h1>
-    <h1>{{prod.location}}</h1>
-    <h1>{{prod.user}}</h1> --}}
-    {{!-- {{/each}} --}}
-
-
-{{!-- <div> --}}
-    {{!-- <img src="{{dataValues.image}}"/> --}}
-    {{!-- <h1>{{dataValues.product_name}}</h1>
-    <h1>{{dataValues.description}}</h1>
-    <h1>{{dataValues.price}}</h1>
-    <h1>{{dataValues.condition}}</h1>
-    <h1>{{dataValues.location}}</h1>
-    <h1>{{dataValues.user}}</h1> --}}
-{{!-- </div> --}}
-</a>
-{{/each}}
-
+     </div>
+  </div>
 </div>
-</section>
+  <!-- Latest posts -->
+  <div class="contact" id="log-in-form">
+  <form class="login-form">
+    <div class="inputs-group">
+
+      <h4 class="panel-title">Latest Ratings</h4>
+    </div>
+    {{#each rating}}
+    <div class="panel-body">
+      <div class="profile__comments">
+        <div class="profile-comments__item">
+
+          <div class="profile-comments__avatar">
+            <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
+          </div>
+          <div class="profile-comments__body">
+            <h5 class="profile-comments__sender">
+              {{dataValues.rater}} <small>2 hours ago</small>
+            </h5>
+            <div class="profile-comments__content">
+              {{dataValues.rating_comment}}
+            </div>
+            <div class="profile-comments__content">
+              Rating: {{dataValues.rating_value}}
+            </div>
+            </div>
+          </div>
+           </div>
+  </form>
+</div>
+ 
+        {{/each}}

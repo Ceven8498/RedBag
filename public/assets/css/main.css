@@ -427,9 +427,7 @@ html {
   color: black;
   text-align: center;
   display: center; 
-  border-radius: 2rem;
-}   
-
+  border-radius: 2rem; }   
 
 .rcontainer img {
    height:250px;
@@ -438,9 +436,7 @@ html {
 
 .row {
   justify-content: center;
-  padding: 1rem
-
-}
+  padding: 1rem; }
 
 .btn {
   width: 16rem;
@@ -538,13 +534,13 @@ html {
   overflow:hidden;
 }
       
-/**
- * Panels
- */
 /*** General styles ***/
 .panel {
+  grid-template-columns: 75px 35rem 300px;
+  grid-template-rows: 75px 75px auto;
+  display: grid;
   box-shadow: none;
-  padding: 4rem;
+  padding: 2rem;
 }
 .panel-heading {
   border-bottom: 0;
@@ -560,22 +556,19 @@ html {
   margin-top: 0;
   width: 100%
 }
-.panel-footer {
-  border-top: 0;
+.contact {
+  grid-column: 1 / 2;
+  grid-row: 1 / 4;
 }
 
 .panel-default > .panel-heading {
     color: #333333;
     background-color: transparent;
-    border-color: rgba(0, 0, 0, 0.07);
-}
+    border-color: rgba(0, 0, 0, 0.07); }
 
-/**
- * Profile
- */
 /*** Profile: Header  ***/
 .profile__avatar {
-  float: left;
+  justify-self: start;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -667,12 +660,9 @@ html {
 @media (max-width: 767px) {
   .profile-comments__sender > small {
     display: block;
-    margin: 5px 0 10px;
-  }
-}
+    margin: 5px 0 10px; } }
 .profile-comments__content {
-  color: #999999;
-}
+  color: #999999; }
 /*** Profile: Contact ***/
 .profile__contact-btn {
   padding: 12px 20px;
