@@ -10,9 +10,9 @@
             <img src="https://mvp.microsoft.com/en-us/PublicProfile/Photo/10108" alt="...">
           </div>
             <div class="profile__header">
-             <h4>{{user.dataValues.username}} test</h4>
+             <h4>{{user.dataValues.username}}</h4>
               <p class="text-muted">
-                Averate User Rating: 4.4 Stars
+                {{rating.dataValues.rating_avg}}
               </p>
             </div>
         </div>  
@@ -89,7 +89,7 @@
       <section class="container-fluid">
         <div class="row main">
         
-      {{#each products}}
+      {{#each user.products}}
       <a href="/product/{{dataValues.id}}"class="carda">
 
       <div class="rcontainer card" >
@@ -108,3 +108,4 @@
     </div>
   </div>
 </div>
+<script src="/assets/js/rating2.js"></script>
