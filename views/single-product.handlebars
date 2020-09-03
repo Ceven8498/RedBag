@@ -21,26 +21,32 @@
 						
 					</div>
 					<div class="details col-md-6">
-                        <a href="/rating/{{prod.user_id}}"><h3 class="product-title">{{prod.user}}</h3></a>
+                       
 						<h3 class="product-title">{{prod.product_name}}</h3>
 						<div class="rating">
 							<div class="stars">
 							</div>
-							<p class="review-no">{{prod.description}}</p>
+							<h4 class="">{{prod.description}}</h4>
 						</div>
-						<h4 class="price">current price: <span>{{prod.price}}</span></h4>
-						<p class="vote"><strong>Product Condition:</strong>{{prod.condition}}</p>
-						<h5 class="sizes">Location:
+						<h4 class="price">Current Price: <span>${{prod.price}}</span></h4>
+						<h4 class="vote"><strong>Product Condition: </strong>{{prod.condition}}</h4>
+            <h4 class="product-title">Seller: <a href="/rating/{{prod.user_id}}">{{prod.user}}</a></h4>
+						<h4 class="sizes">Location:
 							<span class="size" data-toggle="tooltip" title="small">{{prod.location}}</span>
-						</h5>
+						</h4>
 						<div class="action">
 							<a href="mailto:{{prod.email}}" class="add-to-cart btn btn-danger" type="button">Contact User</a>
 						</div>
+						{{#if loggedIn}}
+						<div  style="padding-top: 3%">
+							<button id="delete" class="btn btn-danger btn-lg">Delete</button>
+						</div>
+						{{/if}}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+<script src="/assets/js/delete.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

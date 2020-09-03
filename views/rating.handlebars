@@ -2,8 +2,8 @@
 
 
  <body>
-    <div>
-      <div class="col-xs-12 col-sm-9">
+    <div class="row">
+      <div class="col-lg-4">
         <!-- User profile -->
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -31,7 +31,7 @@
 <div class="contact" id="log-in-form">
   <div class="login-form">
     <div class="inputs-group">
-        <div class="col-xs-12 col-sm-3">
+        <div class="col-lg-6">
           <hr class="profile__contact-hr">
           <!-- Raiting -->
           <div class="contact">
@@ -68,19 +68,18 @@
     </div>
      </div>
   </div>
-</div>
+
  
 
   <!-- Latest posts -->
-  <div class="contact" id="log-in-form">
-  <form class="login-form">
-    <div class="inputs-group">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">Latest Ratings</h4>
+  <div class="flex">
+  <div class="col-lg-10">
+    <div class="">
+      <h4 class="">Latest Ratings</h4>
     </div>
     {{#each rating}}
-    <div class="panel-body">
+    
+    <div class="">
       <div class="profile__comments">
         <div class="profile-comments__item">
 
@@ -98,10 +97,9 @@
               Rating: {{dataValues.rating_value}}
             </div>
             </div>
+            </div>
           </div>
-           </div>
-  </form>
-</div>
+     
  
         {{/each}}
 
