@@ -165,8 +165,8 @@ router.get('/rating/:id', (req, res) => {
                     },
                   })
                   .then(user => {
-                      console.log(user);
-                      console.log(updatedRatingData);
+                      console.log("Our user is: ", user);
+                      console.log("our updated Rating data is: ", updatedRatingData);
                     res.render("rating", { rating: updatedRatingData, user: user})
                 })
             })
@@ -179,6 +179,7 @@ router.get('/rating/:id', (req, res) => {
 
 router.get("/products/:category", (req, res) => {
     // find all products
+    console.log("req.params.category is: ", req.params.category)
     db.Category.findOne({
         
         where: {
@@ -191,7 +192,7 @@ router.get("/products/:category", (req, res) => {
         // hence the  'res.json()'
       })        .then(categories => {
         const id = categories.get({ plain: true });
-        console.log(id.id);
+        console.log("Our id is: ", id.id);
         db.Product.findAll({
             // attributes are essentially the columns of the table that is associated with the model, in this case it is the Product model
             where: {

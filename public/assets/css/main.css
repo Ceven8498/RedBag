@@ -302,7 +302,7 @@ html {
 .contact .inputs-group {
   display: flex;
   justify-content: center; }
-  .contact .inputs-group input {
+  .contact .inputs-group input, select {
     padding: 1rem;
     font-size: 1.6rem;
     margin: 1rem 0.5rem;
