@@ -47,9 +47,9 @@ router.get("/products", (req, res) => {
             [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
         ]
 
-    // '.then() = > {} res.json ();' 
-    // is creating an object, in this case 'products', and then passing the results of our sequelize database query into that object as json data
-    // hence the  'res.json()'
+        // '.then() = > {} res.json ();' 
+        // is creating an object, in this case 'products', and then passing the results of our sequelize database query into that object as json data
+        // hence the  'res.json()'
     }).then(products => {
         // we're establishing this route to render products.handlebars
         // we're also passing through the sequelize data that our route gives us
@@ -58,12 +58,44 @@ router.get("/products", (req, res) => {
     })
 })
 
+router.get('/user/:id', (req, res) => {
+    console.log("About to rate a user!\n");
+
+    db.Product.findAll({
+
+        where: {
+            user_id: req.params.id
+        },
+        attributes: [
+            'id',
+            'product_name',
+            'description',
+            'price',
+            'condition',
+            'location',
+            'image',
+            'user_id',
+            // sequelize literals are basically mysql queries
+            [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
+        ]
+
+    }).then(products => {
+        // we're establishing this route to render products.handlebars
+        // we're also passing through the sequelize data that our route gives us
+        // this data is established as products, for handlebars to use in the products.handlebars page
+        res.render("products", { products })
+    })
+})
+
+
+
+
 // get one product by id
 // localhost:3001/product/idgoeshere
 // page to view one product, renders single-product.handlebars page
 router.get("/product/:id", (req, res) => {
     db.Product.findOne({
-    // 'where' is a mysql-derived query that establishes parameters for the data we specifically want from the table
+        // 'where' is a mysql-derived query that establishes parameters for the data we specifically want from the table
         where: {
             id: req.params.id
         },
@@ -157,18 +189,18 @@ router.get('/rating/:id', (req, res) => {
                 }
                 db.User.findOne({
                     attributes: {
-                      exclude: ['password'],
+                        exclude: ['password'],
                     },
                     // 'where' is a mysql-derived query that establishes parameters for the data we specifically want from the table
                     where: {
-                      id: req.params.id
+                        id: req.params.id
                     },
-                  })
-                  .then(user => {
-                      console.log(user);
-                      console.log(updatedRatingData);
-                    res.render("rating", { rating: updatedRatingData, user: user})
                 })
+                    .then(user => {
+                        console.log(user);
+                        console.log(updatedRatingData);
+                        res.render("rating", { rating: updatedRatingData, user: user })
+                    })
             })
             .catch(err => {
                 console.log(err);
@@ -180,7 +212,7 @@ router.get('/rating/:id', (req, res) => {
 router.get("/products/:category", (req, res) => {
     // find all products
     db.Category.findOne({
-        
+
         where: {
             category_name: req.params.category
         },
@@ -189,7 +221,7 @@ router.get("/products/:category", (req, res) => {
         // '.then() = > {} res.json ();' 
         // is creating an object, in this case 'dbCategory', and then passing the results of our sequelize database query into that object as json data
         // hence the  'res.json()'
-      })        .then(categories => {
+    }).then(categories => {
         const id = categories.get({ plain: true });
         console.log(id.id);
         db.Product.findAll({
@@ -209,15 +241,15 @@ router.get("/products/:category", (req, res) => {
                 // sequelize literals are basically mysql queries
                 [sequelize.literal('(SELECT username FROM user WHERE product.user_id = user.id)'), 'user']
             ]
-    
-        // '.then() = > {} res.json ();' 
-        // is creating an object, in this case 'products', and then passing the results of our sequelize database query into that object as json data
-        // hence the  'res.json()'
+
+            // '.then() = > {} res.json ();' 
+            // is creating an object, in this case 'products', and then passing the results of our sequelize database query into that object as json data
+            // hence the  'res.json()'
         }).then(products => {
             // we're establishing this route to render products.handlebars
             // we're also passing through the sequelize data that our route gives us
             // this data is established as products, for handlebars to use in the products.handlebars page
-            res.render("category", { products })
+            res.render("products", { products })
         })
 
     })
