@@ -46,7 +46,7 @@ console.log("tests2")
             contentType: false,
             processData: false
         }).then(result => {
-            document.location.replace('/products/');
+            document.location.replace('/product/'+ result.id);
             console.log(result)
             return false
         })
