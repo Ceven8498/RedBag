@@ -20,7 +20,59 @@
     />
     <link rel="stylesheet" href="/assets/css/main.css" />
     <link rel="stylesheet" href="/assets/css/spage.css" />
-    <title>{{#if loggedIn}}Red Bag{{else}}Blue Bag{{/if}}</title>
+    <title>Red Bag</title>
 </head>
-<body>{{{body}}}</body>
+<body>
+  {{#if loggedIn}}
+  <header class="header">
+        <div class="logo">
+          <img src="/images/logo.png" class="logo-img" />
+        </div>
+        
+        <div class="heading">
+          <h1 class="heading-text">
+            Red Bag
+          </h1>
+        </div>
+
+        <nav class="first-nav">
+          <ul class="first-nav-list">
+            <li class="first-nav-item">
+              <a href="/products" class="second-nav-link">Home</a>
+            </li>
+            <li class="first-nav-item dropdown-li">
+              <a href="#" class="first-nav-link">Categories</a>
+              <ul class="dropdown">
+                <li class="dropdown-item">
+                  <a href="/products/Electronics" class="dropdown-link">Eletronic</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="/products/Furniture" class="dropdown-link">Furniture</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="/products/Clothing" class="dropdown-link">Clothing</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="/products/Outdoors" class="dropdown-link">Outdoors</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="/products/Automotive" class="dropdown-link">Automotive</a>
+                </li>
+              </ul>
+            </li>
+            <li class="first-nav-item">
+              <a href="/new-product" class="first-nav-link">Sell Item</a>
+            </li>
+            <li class="first-nav-item">
+                <a href="#" id="logout" class="first-nav-link">Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      {{/if}}
+  {{{body}}}
+  </body>
+  {{#if loggedIn}}
+<script src="/assets/js/logout.js"></script>
+{{/if}}
 </html>

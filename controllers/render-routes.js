@@ -211,7 +211,7 @@ router.get('/rating/:id', (req, res) => {
                       console.log("our updated Rating data is: ", updatedRatingData);
                       console.log("our logged in status is: ", req.session.loggedIn);
 
-                    res.render("rating", { rating: updatedRatingData, user: user, loggedIn: req.session.loggedIn})
+                    res.render("rating", { rating: updatedRatingData, user: user})
                 })
             })
             .catch(err => {
@@ -219,6 +219,7 @@ router.get('/rating/:id', (req, res) => {
                 res.status(500).json(err);
             });
     }
+
 })
 
 router.get("/products/:category", (req, res) => {
