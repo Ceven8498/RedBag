@@ -36,7 +36,9 @@ html {
   grid-template-rows: repeat(3, min-content);
   grid-gap: 2rem;
   background-color: white;
-  z-index: 100; }
+  z-index: 100; 
+  height: 9rem;
+}
 
 .header-login {
   text-align: center; }
@@ -300,7 +302,7 @@ html {
 .contact .inputs-group {
   display: flex;
   justify-content: center; }
-  .contact .inputs-group input {
+  .contact .inputs-group input, select {
     padding: 1rem;
     font-size: 1.6rem;
     margin: 1rem 0.5rem;
@@ -375,7 +377,7 @@ html {
 .logo {
   grid-column: 2 / 1;
   grid-row: 1 / 1 ;
-  padding-top: 5rem;
+  padding-top: 1.1rem;
   justify-self: end; }
   .logo-img {
     width: 10rem;
@@ -391,7 +393,7 @@ html {
   .heading-text {
     font-size: 4rem;
     font-weight: lighter;
-    letter-spacing: 0.5rem; }
+ }
 
 .dropdown-li {
   position: relative; }
@@ -599,8 +601,9 @@ html {
   font-size: .75em;
   color: #999999;
 }
-.panel-body *:first-child {
+.panel-body {
   margin-top: 0;
+  width: 100%
 }
 .panel-footer {
   border-top: 0;
@@ -827,4 +830,13 @@ a.carda {
 
 .btn-danger:hover {
   background-color: #dc3545 !important;
+}
+
+.flex {
+  display: flex;
+}
+.content {
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
 }
