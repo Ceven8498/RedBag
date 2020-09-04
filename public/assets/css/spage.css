@@ -1,15 +1,14 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Josefin Sans", sans-serif; }
+
   
 body {
     font-family: 'open sans';
     overflow-x: hidden; }
   
   img {
-    max-width: 100%; }
+    max-width: 100%;
+    max-height: 650px;
+  }
   
   .preview {
     display: -webkit-box;
@@ -59,7 +58,9 @@ body {
     margin-top: 50px;
     background: #eee;
     padding: 3em;
-    line-height: 1.5em; }
+    line-height: 1.5em; 
+    background-color: rgba(211,211,211, .1);
+  }
   
   @media screen and (min-width: 997px) {
     .wrapper {
@@ -101,7 +102,7 @@ body {
   .size {
     margin-right: 10px; }
     .size:first-of-type {
-      margin-left: 40px; }
+      margin-left: 8px; }
   
   .color {
     display: inline-block;

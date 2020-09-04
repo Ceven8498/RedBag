@@ -106,7 +106,8 @@ router.post("/", /*withAuth,*/ multer.single("file"), (req, res) => {
       price: imageDetails.price,
       condition: imageDetails.condition,
       location: imageDetails.location,
-      user_id: imageDetails.user_id,
+      category_id: imageDetails.category_id,
+      user_id: req.session.user_id,
       image: publicUrl,
       image_name: imageDetails.image_name
     }).then(dbProduct => res.json(dbProduct))
@@ -129,7 +130,9 @@ router.post('/', (req, res) => {
     description: req.body.description,
     price: req.body.price,
     condition: req.body.condition,
-    location: req.body.location
+    location: req.body.location,
+    category_id: req.body.category_id,
+    user_id: req.session.user_id
   })
     .then(dbProduct => res.json(dbProduct))
     .catch(err => {

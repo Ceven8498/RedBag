@@ -1,5 +1,11 @@
-<div class="container-fluid">
-<div class="contact">
+
+<div class="container-fluid outline2">
+  <div class="container-fluid">
+    <div class="contact">
+      <div class="inputs-group">
+        <h1>Tell Us About Your Item</h1>
+      </div>
+      
 <form id="create-form" enctype="multipart/form-data">
   <div class="inputs-group">
     <input id="prodName" type="text" placeholder="Name of product" class="inputs-group-text"/>
@@ -8,10 +14,19 @@
     <input id="prodDescription" type="text" placeholder="Description of product" class="inputs-group-text"/>
   </div>
   <div class="inputs-group">
-    <input id="prodPrice" type="number" step="any" placeholder="$0.00" class="inputs-group-text"/>
+    <select class="inputs-group-text" id="categorySelection" name="categoryPick">
+      <option value="none" selected disabled hidden> 
+          Select an Option 
+      </option> 
+      <option name="categoryPick" value="1">Electronics</option>
+      <option name="categoryPick" value="2">Furniture</option>
+      <option name="categoryPick" value="3">Clothing</option>
+      <option name="categoryPick" value="4">Outdoors</option>
+      <option name="categoryPick" value="5">Automotive</option>
+    </select>
   </div>
   <div class="inputs-group">
-    <input id="prodOwner" type="text" placeholder="User ID of product owner" class="inputs-group-text"/>
+    <input id="prodPrice" type="number" step="any" placeholder="$0.00" class="inputs-group-text"/>
   </div>
   <div class="inputs-group">
     <input id="prodCondition" type="text" placeholder="Product condition" class="inputs-group-text"/>
@@ -20,18 +35,16 @@
     <input id="prodLocation" type="text" placeholder="Product location" class="inputs-group-text"/>
   </div>
   <div class="inputs-group">
-    <input id="name" type="text" placeholder="Name of photo" class="inputs-group-text"/>
-  </div>
-  <div class="inputs-group">
          <input id="userImg" name="userImg" type="file" class="inputs-group-text"/>
   </div>
   <div class="inputs-group">
                   <div class="ui icon button">
                 <i class="attach icon"></i>
          </div>
-         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+         <button type="submit" class="btn btn-danger btn-lg">Submit</button>
   </div>
 </form>
+</div>
 </div>
 </div>
 
