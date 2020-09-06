@@ -19,14 +19,14 @@ The application gives yout the following options:
 1. Open Terminal
 2. `npm install` for Dependencies
 3. Create file call .env and use these variables with your personal mysql crediticals, database name, and Node Enviorment.
-DB_NAME=''
-DB_USER=''
-DB_PW=''
-DB_SECRET=''
-GCS_BUCKET=''
-GCLOUD_PROJECT= ''
-GCLOUD_CLIENT_EMAIL= ''
-GCLOUD_PRIVATE_KEY= ''
+    * DB_NAME=''
+    * DB_USER=''
+    * DB_PW=''
+    * DB_SECRET=''
+    * GCS_BUCKET=''
+    * GCLOUD_PROJECT= ''
+    * GCLOUD_CLIENT_EMAIL= ''
+    * GCLOUD_PRIVATE_KEY= ''
 4. In Terminal
    (Seed your Database) `node seeds/index.js `
 5. Type `node server.js` to start your sever.
