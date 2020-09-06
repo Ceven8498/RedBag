@@ -13,7 +13,6 @@ The application gives yout the following options:
 * Be interactive (i.e., accept and respond to user input).
 * Includes authentication (express-session and cookies).
 * Protect API keys and sensitive information with environment variables.
-* THEN I am able to successfully create, update, and delete data in my database
 
 ## Installation
 ---
