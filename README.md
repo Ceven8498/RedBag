@@ -41,7 +41,7 @@ The application gives yout the following options:
 
 5. Add a product, and ENJOY!
 
-    ![](rmimages/demo.png)
+    ![](rmimages/menu.png)
 
 ## Tool & Resources
 ---
